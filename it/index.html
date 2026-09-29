@@ -97,28 +97,19 @@ h2{font-weight:700;font-stretch:92%;letter-spacing:-.02em;line-height:1.06;text-
 .rule{display:flex;gap:0;height:10px;margin-bottom:22px;background:repeating-linear-gradient(90deg,var(--line-2) 0 1px,transparent 1px 8px);background-size:100% 6px;background-repeat:no-repeat;background-position:bottom;position:relative}
 .rule::before{content:"";position:absolute;left:0;bottom:0;width:120px;height:10px;background:repeating-linear-gradient(90deg,var(--blue) 0 1px,transparent 1px 8px)}
 @media (max-width:720px){.hero{padding:54px 0 44px}}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:34px}}
 .hero h1{max-width:14ch;font-size:clamp(40px,5.8vw,72px)}
 .hero .lead{font-size:19px;max-width:48ch}
 .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-.hero .meta{margin-top:34px;font-family:var(--mono);font-size:12.5px;color:var(--ink-3);display:flex;gap:18px;flex-wrap:wrap}
+.hero .meta{margin-top:34px;font-family:var(--mono);font-size:12.5px;color:var(--ink-3);display:flex;gap:10px 18px;flex-wrap:wrap;max-width:60ch}
+.hero .meta b{color:var(--ink);font-weight:500}
 .hero .meta span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--blue);margin-right:8px;vertical-align:2px}
 .hero .stack{position:relative}
-.readout{border:1px solid var(--line-2);border-radius:var(--r);background:var(--bg);font-family:var(--mono);font-size:13px;overflow:hidden}
-.readout .rh{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--bg-2);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
-.readout .rh i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--blue);margin-right:8px;vertical-align:-1px;animation:blink 2.4s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-.readout .row{display:grid;grid-template-columns:132px 1fr;gap:14px;padding:12px 16px;border-top:1px solid var(--line);align-items:baseline}
-.readout .row:first-of-type{border-top:0}
-.readout .row .k{color:var(--ink-3);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
-.readout .row .v{color:var(--ink);font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:-.01em;min-width:0}
-.readout .row .v small{display:block;font-family:var(--mono);font-weight:400;font-size:12px;color:var(--ink-2);margin-top:2px}
-.readout .row .v b{font-size:22px;font-weight:750;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.readout .rf{padding:10px 16px;border-top:1px solid var(--line);font-size:11.5px;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.readout .rf a{color:var(--blue)}
-.hero .frame.f2{margin:18px 0 0 12%;transform:none}
-@media (max-width:900px){.hero .frame.f2{margin:16px 0 0}}
+.hero .frame.f1{margin-top:10px}
+.hero .fcap{margin:16px 4px 0;font-size:14px;color:var(--ink-2);max-width:52ch}
+.hero .fcap .d{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+.hero .fcap a{font-weight:600}
 
 /* marquee */
 .marq{padding:26px 0 8px;position:relative;background:var(--bg)}
@@ -241,7 +232,7 @@ h2{font-weight:700;font-stretch:92%;letter-spacing:-.02em;line-height:1.06;text-
 
 /* timeline */
 .tl{padding:70px 0 90px}
-.tl .track{margin-top:36px;position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.tl .track{margin-top:36px;position:relative;display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
 @media (max-width:820px){.tl .track{grid-template-columns:repeat(2,1fr)}}
 .tl .track::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--line-2)}
 @media (max-width:820px){.tl .track::before{display:none}}
@@ -350,19 +341,11 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <a class="btn primary" href="#programs"><i class="pulse"></i>Gestire programmi in AI safety <span class="arr">-&gt;</span></a>
           <a class="btn" href="#research">Vedi la ricerca</a>
         </div>
-        <div class="meta"><span>Better Futures fellow</span><span>MATS inverno 2027, Stage 2</span><span>Cambridge Digital Minds</span><span>TEDxBarletta, ottobre</span></div>
+        <div class="meta"><span>Giorno <b id="rdays">0</b> di Freedom v2</span><span>Better Futures fellow, ENAIS</span><span>Mentorship Sentient Futures</span><span>Cambridge Digital Minds</span><span>MATS inverno 2027, Stage 2</span><span id="rnext">Prossimo palco: TEDxBarletta</span></div>
       </div>
       <div class="stack">
-        <div class="readout" aria-label="What is running now">
-          <div class="rh"><span><i></i>In corso adesso</span><span id="rdate"></span></div>
-          <div class="row"><span class="k">Ricerca</span><span class="v"><b id="rdays">0</b> giorni di Freedom v2<small>ogni chiamata loggata · pre-registrato su OSF · 2 substrati</small></span></div>
-          <div class="row"><span class="k">Formazione</span><span class="v"><b>300+</b> persone in aula nel 2026<small>banche, manifatturiero, enti pubblici · un corso gratuito bilingue</small></span></div>
-          <div class="row"><span class="k">Lavoro</span><span class="v">CTO esterna di un gruppo<small>più backend su due piattaforme interne</small></span></div>
-          <div class="row"><span class="k">Prossimo palco</span><span class="v" id="rnext">TEDxBarletta<small>16-17 Oct</small></span></div>
-          <div class="row"><span class="k">In selezione</span><span class="v">MATS inverno 2027<small>Empirical track · Stage 2</small></span></div>
-          <div class="rf"><span>hash della costituzione abf8228d9587</span><a href="#research">come funziona lo studio -&gt;</a></div>
-        </div>
-        <div class="frame f2"><div class="chrome"><i></i><i></i><i></i><span>apartresearch.com</span></div><img src="../img/fa95d0854763.jpg" alt="Il paper su Apart Research"></div>
+        <div class="frame f1"><div class="chrome"><i></i><i></i><i></i><span>apartresearch.com</span></div><img src="../img/fa95d0854763.jpg" alt="Il paper su Apart Research"></div>
+        <p class="fcap"><span class="d">ago 2026 · Digital Minds Research Sprint</span>Un welfare logger ha scritto un falso ricordo del suo soggetto, e il soggetto ci ha creduto. <a href="#research">Il paper -&gt;</a></p>
       </div>
     </div>
   </header>
@@ -400,7 +383,8 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <div class="t"><div class="d">ago 2026</div><b>Apart Research</b><span>paper da sprint, autrice unica</span></div>
         <div class="t"><div class="d">set 2026</div><b>Better Futures</b><span>fellowship ENAIS, coorte in corso</span></div>
         <div class="t"><div class="d">ott 2026</div><b>TEDxBarletta</b><span>talk sull'incertezza morale sui sistemi AI</span></div>
-        <div class="t open"><div class="d">autunno 2026</div><b>Cambridge Digital Minds</b><span>Introduction to Digital Minds</span></div>
+        <div class="t"><div class="d">set 2026</div><b>Sentient Futures</b><span>mentorship di ricerca, prima autrice</span></div>
+        <div class="t"><div class="d">autunno 2026</div><b>Cambridge Digital Minds</b><span>Introduction to Digital Minds, coorte in corso</span></div>
         <div class="t open"><div class="d">inverno 2027</div><b>MATS</b><span>Empirical track, Stage 2 in corso</span></div>
       </div>
     </div>
@@ -680,7 +664,7 @@ var ORGS=[
  {n:"Apart Research",logo:"apart",dark:1,icon:1,when:"ago 2026",how:"Autrice unica, Digital Minds Research Sprint",what:"\"A Welfare Logger Wrote Its Subject's False Memory, and the Subject Believed It.\"",link:"https://apartresearch.com/project/a-welfare-logger-wrote-its-subjects-false-memory-and-the-subject-believed-it-kkqb"},
  {n:"ENAIS · Better Futures",logo:"enais",when:"da set 2026",how:"Fellow, coorte in corso",what:"Fellowship di nove settimane sul lavoro better futures. Progetto in sviluppo: una mappa delle ultime uscite dal value lock-in.",link:"https://www.enais.co"},
  {n:"Sentient Futures",logo:"sentient",dark:1,when:"da set 2026",how:"Mentee, prima autrice di un paper congiunto",what:"Con Chris Percy sul progetto cf-debate: dove vivono gli indicatori di coscienza, nel modello o nello scaffold.",link:"https://cf-debate.com"},
- {n:"Cambridge Digital Minds",when:"autunno 2026",how:"Ammessa, 12% dei candidati",what:"Introduction to Digital Minds, coorte online."},
+ {n:"Cambridge Digital Minds",when:"autunno 2026",how:"Coorte in corso, ammesso il 12% dei candidati",what:"Introduction to Digital Minds, coorte online, in corso."},
  {n:"MATS",logo:"mats",icon:1,when:"inverno 2027",how:"Candidata, Empirical track, Stage 2",what:"ML Alignment & Theory Scholars. Superato lo Stage 1; assessment di research taste e coding fatti, stream matching in corso.",link:"https://www.matsprogram.org"},
  {n:"BlueDot Impact",logo:"bluedot",icon:1,when:"ago 2026",how:"Completato, ammissione selettiva",what:"Corso Technical AI Safety: alignment, interpretabilità meccanicistica, evaluation e red-teaming, AI control.",link:"https://bluedot.org"},
  {n:"OSF",logo:"osf",icon:1,when:"lug e ago 2026",how:"Due pre-registrazioni pubbliche",what:"Lo studio di welfare su Freedom v2 (CC-BY) e lo studio a costituzioni incrociate su un modello open-weights (CC0).",link:"https://osf.io/hjfxr"},
@@ -748,8 +732,8 @@ var PROGS=[
   body:"Nove settimane: cinque di discussione facilitata sulla ricerca better futures di Forethought, quattro di progetto. Il mio progetto: una \"mappa delle ultime uscite\" dai meccanismi di value lock-in sotto path dependence persistente, a partire da casi storici di irrigidimento codificati per meccanismo, ultima uscita disponibile e segnale di allarme visibile da dentro. Ipotesi di lavoro: la distopia per deriva è più probabile della distopia per decisione.",link:"https://www.enais.co"},
  {org:"Sentient Futures",title:"Mentorship di ricerca",when:"set 2026, in corso",status:"prima autrice di un paper congiunto",tags:["indicatori di coscienza","individuazione","scaffold"],sel:"mentore Chris Percy",
   body:"Sul progetto cf-debate: mettere alla prova le tabelle di indicatori su Freedom v2 come caso concreto, chiedendo per ogni indicatore dove vive. Più analisi dei dati del sito e del quiz.",link:"https://cf-debate.com"},
- {org:"Cambridge Digital Minds",title:"Introduction to Digital Minds",when:"autunno 2026",status:"ammessa",tags:["digital minds","status morale","filosofia della mente"],sel:"ammesso il 12% dei candidati",
-  body:"Coorte online, autunno e inverno 2026."},
+ {org:"Cambridge Digital Minds",title:"Introduction to Digital Minds",when:"autunno 2026",status:"in corso",tags:["digital minds","status morale","filosofia della mente"],sel:"ammesso il 12% dei candidati",
+  body:"Coorte online, autunno e inverno 2026. Iniziata a settembre 2026."},
  {org:"MATS",title:"ML Alignment & Theory Scholars, inverno 2027",when:"inverno 2027",status:"Stage 2, in selezione",tags:["empirical alignment","research taste","interpretabilità"],sel:"superato lo Stage 1",
   body:"Empirical track. Assessment di research taste e coding fatti, stream matching in corso.",link:"https://www.matsprogram.org"}
 ];
@@ -761,8 +745,8 @@ var CARDS=[
   items:[["lug 2026","<b>La regola delle date.</b> Niente date assolute prima di aver mappato processi e dati; le date dipendenti come condizionali; barre a righe per il lavoro che aspetta qualcun altro."],["dal 2025","<b>Pre-registrazione con una policy per le deviazioni.</b> Come cambia il piano quando cambia qualcosa, scritto prima della raccolta dati."],["giu-lug 2026","<b>Una sessione spostata e ricostruita</b> per un pubblico diverso da quello ipotizzato all'inizio."],["2026","<b>Digitalizzazione dei contratti in parallelo col fornitore</b>, con un punto di decisione datato su integrare o sostituire."],["ago-set 2026","<b>Migrazione dell'ERP in cloud</b> in produzione il 3 agosto, test di restore l'8 settembre: una condizione, non un'opzione."],["2026","<b>Semantica prima del codice.</b> Zero correzioni a posteriori sulle funzioni gestite così."],["2026","<b>Regole scritte dopo incidenti veri:</b> nessun rilascio non testato alla vigilia di un test col cliente; niente migrazioni il venerdì sera."]]},
  {n:"03",q:"Comunicare in modo chiaro, gestire scadenze e budget, decidere sui dati.",a:"Cinque pubblici, cinque registri. Contratti con i fornitori per tutto un gruppo. Un post-mortem dopo ogni filone di lavoro.",
   items:[["dal 2026","<b>Report scritto settimanale</b> a due CEO con il fondo in copia: una schermata, in prima persona. Regole per il board: niente nomi interni, niente dettagli degli incidenti, le cose in sospeso come \"in attesa di risposta\"."],["2026","<b>Contratti e rinnovi con i fornitori.</b> Un accordo quadro rivisto clausola per clausola, una polizza cyber controllata su massimale e retroattività, un pacchetto riprezzato voce per voce, un rinnovo preso in tempo."],["2026","<b>Quattro errori visibili, duemila silenziosi.</b> L'ordine delle priorità è cambiato quel giorno."],["2026","<b>Post-mortem dopo ogni corso</b> e una knowledge base formativa versionata."],["2026","<b>Una dashboard di reporting per il fondo</b>, in produzione, con un bug strutturale sui dati di fatturazione trovato e risolto lì."],["2026","<b>Tre fonti dati che non coincidevano</b>, riconciliate tessera per tessera; il risultato è andato al fornitore come numeri, non come accusa."],["2026","<b>Regole imparate a proprie spese:</b> i termini via email non contano finché non sono nel testo firmato; un campanello d'allarme si verifica prima di propagarlo."]]},
- {n:"04",q:"AI safety e preparazione all'AGI.",a:"Uno studio pre-registrato, un paper da sprint, quattro programmi selettivi nel 2026, e Better Futures vista da dentro.",
-  items:[["da nov 2025","<b>Freedom v2</b>, principal investigator. Due pre-registrazioni su OSF, codice pubblico, un sistema che pubblica le sue pagine senza editing."],["ago 2026","<b>Paper da sprint per Apart Research</b>, autrice unica. Post su EA Forum sull'incidente."],["set 2026","<b>Better Futures Fellowship</b>, coorte in corso. <b>Mentorship Sentient Futures</b>, prima autrice di un paper in corso."],["autunno 2026","<b>Cambridge Digital Minds</b>, ammessa (12% dei candidati)."],["inverno 2027","<b>MATS, Empirical track</b>, superato lo Stage 1, in Stage 2."],["ago 2026","<b>BlueDot Impact</b>, corso Technical AI Safety, completato."]]}
+ {n:"04",q:"AI safety e preparazione all'AGI.",a:"Uno studio pre-registrato, un paper da sprint, e tre programmi in corso insieme: Better Futures, Sentient Futures e Cambridge Digital Minds.",
+  items:[["da nov 2025","<b>Freedom v2</b>, principal investigator. Due pre-registrazioni su OSF, codice pubblico, un sistema che pubblica le sue pagine senza editing."],["ago 2026","<b>Paper da sprint per Apart Research</b>, autrice unica. Post su EA Forum sull'incidente."],["set 2026","<b>Better Futures Fellowship</b>, coorte in corso. <b>Mentorship Sentient Futures</b>, prima autrice di un paper in corso."],["autunno 2026","<b>Cambridge Digital Minds</b>, coorte in corso (ammesso il 12% dei candidati)."],["inverno 2027","<b>MATS, Empirical track</b>, superato lo Stage 1, in Stage 2."],["ago 2026","<b>BlueDot Impact</b>, corso Technical AI Safety, completato."]]}
 ];
 
 var EVENTS=[
@@ -908,15 +892,12 @@ document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=function(
 document.querySelectorAll("[data-close]").forEach(function(b){b.onclick=closeOv;});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"){if(ovS.classList.contains("open")||ovG.classList.contains("open"))closeOv();else closeModal();}});
 
-/* readout */
+/* now line */
 (function(){
-  var days=Math.floor((Date.now()-new Date("2026-07-12T00:00:00Z"))/86400000);
-  document.getElementById("rdays").textContent=days;
+  document.getElementById("rdays").textContent=Math.floor((Date.now()-new Date("2026-07-12T00:00:00Z"))/86400000);
   var today=new Date().toISOString().slice(0,10);
   var nx=EVENTS.filter(function(e){return e.talk&&!e.tbc&&e.iso>=today;}).sort(function(a,b){return a.iso<b.iso?-1:1;})[0];
-  if(nx)document.getElementById("rnext").innerHTML=esc(nx.t.split(",")[0])+"<small>"+esc(nx.d)+(nx.city&&nx.city!=="TV"?" · "+esc(nx.city):"")+"</small>";
-  var d=new Date(),ms=["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"];
-  document.getElementById("rdate").textContent=d.getDate()+" "+ms[d.getMonth()]+" "+d.getFullYear();
+  if(nx)document.getElementById("rnext").textContent="Prossimo palco: "+nx.t.split(",")[0]+", "+nx.d;
 })();
 
 /* theme */
