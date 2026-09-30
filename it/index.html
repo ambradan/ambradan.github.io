@@ -513,6 +513,7 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <div class="box"><span class="k">Reporting</span><div><b>Un report scritto settimanale a due CEO e a un fondo di private equity</b>, una schermata, per il gruppo di cui sono CTO esterna. Stessa disciplina per chi finanzia un programma: cosa è successo, cosa è costato, cosa è aperto.</div></div>
     <div class="box"><span class="k">Strumenti</span><div><b>Asana, Jira e Confluence, Linear, Sentry, usati tutti i giorni sul lavoro con i clienti.</b> Asana per i progetti di un gruppo di consulenza, Linear come registro dello studio Freedom, Jira e Confluence nel gruppo di cui sono CTO, Sentry sui sistemi in produzione, Obsidian per le knowledge base versionate.</div></div>
     <div class="box"><span class="k">Fundraising</span><div><b>Ho scritto e presentato una proposta di grant di ricerca a 12 mesi</b> (2026): budget, milestone, un technical advisor indipendente nominato.</div></div>
+    <div class="box"><span class="k">Evidenze</span><div><b>Tutto quello che questa pagina cita, in un posto solo.</b> <a href="https://osf.io/hjfxr" target="_blank" rel="noopener">Pre-registrazione (OSF)</a> · <a href="https://osf.io/r6z3c" target="_blank" rel="noopener">Seconda pre-registrazione</a> · <a href="https://apartresearch.com/project/a-welfare-logger-wrote-its-subjects-false-memory-and-the-subject-believed-it-kkqb" target="_blank" rel="noopener">Paper Apart</a> · <a href="https://forum.effectivealtruism.org/posts/FbtGKieKJAJKZze22/my-system-denied-having-memories-even-though-they-were" target="_blank" rel="noopener">Post su EA Forum</a> · <a href="https://github.com/ambradan/freedom-v2" target="_blank" rel="noopener">Codice Freedom v2</a> · <a href="https://github.com/ambradan/freedom-replay" target="_blank" rel="noopener">Harness di replay</a> · <a href="https://freedom-interface.vercel.app" target="_blank" rel="noopener">Il sito del sistema</a> · <a href="https://capir-ai.com" target="_blank" rel="noopener">Capire l'IA</a> · <a href="#" data-open="session">Sessione di esempio</a> · <a href="#" data-open="guide">Guida per chi facilita</a></div></div>
     <div style="height:80px"></div>
   </div></section>
 </div>
@@ -765,8 +766,8 @@ var EVENTS=[
  {d:"14 ott 2026",t:"While True, webinar sul recruiting IT",city:"Online",s:"\"Stack, progetti, GitHub: cosa dire davvero a un recruiter IT\". Online, 14:30.",lat:null,talk:1,iso:"2026-10-14"},
  {d:"16-17 ott 2026",t:"TEDxBarletta",city:"Barletta",s:"Teatro Curci, Barletta. Tema \"Supernova\", circa 3.500 persone. In presenza.",lat:41.319,lng:16.283,talk:1,iso:"2026-10-16"},
  {d:"22-23 ott 2026",t:"FastwebAI Hackathon, Agent Forge h24",s:"Fastweb NeXXt, Milano. 24 ore in presenza, AI agentica. Selezionata.",lat:45.4553,lng:9.2085},
- {d:"2 nov 2026",t:"Telesveva, intervista TV sull'AI",city:"Andria",s:"Canale 18, Puglia e Basilicata. In onda alle 8:10. AI, coscienza e come la società percepisce questi sistemi.",lat:41.2266,lng:16.2954,talk:1,iso:"2026-11-02"},
  {d:"nov 2026",t:"Venice AI Expo",city:"Venezia",s:"Sistemi complessi e percezione di empatia: effetti sulla società, rischi di manipolazione. Talk. Data in definizione.",lat:45.4408,lng:12.3155,talk:1,iso:"2026-11-15",tbc:1},
+ {d:"2 nov 2026",t:"Telesveva, intervista TV sull'AI",city:"Andria",s:"Canale 18, Puglia e Basilicata. In onda alle 8:10. AI, coscienza e come la società percepisce questi sistemi.",lat:41.2266,lng:16.2954,talk:1,iso:"2026-11-02"},
  {d:"i lunedì fino al 26 ott",t:"Better Futures Fellowship, gruppo 2",s:"ENAIS / AI Safety Collab, online. Coorte in corso.",lat:null},
  {d:"set-nov 2026",t:"Intesa Sanpaolo, Design & structured thinking",s:"Cinque sessioni, online. Programma chiuso.",lat:null},
  {d:"autunno 2026",t:"Cambridge Digital Minds",s:"Introduction to Digital Minds, coorte online.",lat:null},
@@ -862,7 +863,7 @@ document.getElementById("copyMail").onclick=function(){var b=this;try{navigator.
 
 /* footer dates */
 document.getElementById("yr").textContent=new Date().getFullYear();
-document.getElementById("upd").textContent="29 set 2026";
+document.getElementById("upd").textContent="30 set 2026";
 
 /* reveal on scroll */
 (function(){var sel=".tile,.stats .wrap>div,.tl .t,.card,.feat .copy,.feat .frame,.tests>div,.box,.ccard,.cities a,.also";
@@ -902,7 +903,7 @@ document.getElementById("burger").onclick=function(){mobile.classList.toggle("op
 var ovS=document.getElementById("ovSession"),ovG=document.getElementById("ovGuide"),fr=document.getElementById("sessionFrame"),loaded=false;
 function openOv(which){if(which==="session"){if(!loaded){fr.srcdoc=SESSION_HTML;loaded=true;}ovS.classList.add("open");}else ovG.classList.add("open");document.body.style.overflow="hidden";history.replaceState(null,"","#"+which);}
 function closeOv(){ovS.classList.remove("open");ovG.classList.remove("open");document.body.style.overflow="";history.replaceState(null,"","#programs");show("programs");}
-document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=function(){openOv(b.dataset.open);};});
+document.querySelectorAll("[data-open]").forEach(function(b){b.onclick=function(e){e.preventDefault();openOv(b.dataset.open);};});
 document.querySelectorAll("[data-close]").forEach(function(b){b.onclick=closeOv;});
 document.addEventListener("keydown",function(e){if(e.key==="Escape"){if(ovS.classList.contains("open")||ovG.classList.contains("open"))closeOv();else closeModal();}});
 
