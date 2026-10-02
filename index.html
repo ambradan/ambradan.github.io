@@ -135,44 +135,50 @@ h2{font-weight:700;font-stretch:92%;letter-spacing:-.02em;line-height:1.06;text-
 .marq .hint{font-size:12.5px;color:var(--ink-3);margin-top:12px}
 
 /* tiles */
-/* fit matcher */
-.fit{padding:56px 0 60px;background:var(--blue-soft);border-top:2px solid var(--blue);border-bottom:1px solid var(--line)}
-.fit h2{color:var(--blue-ink)}
-.fit .lead{color:var(--ink)}
-.fit .out{border-top-color:var(--blue)}
-.fit .ex button{border-color:var(--blue);color:var(--blue-ink)}
-.fit .ex span,.fit .priv{color:var(--blue-ink);opacity:.75}
-.fit .empty{color:var(--blue-ink);opacity:.7}
-.fit textarea{background:var(--bg)}
-.fit .ex button{background:var(--bg)}
+/* fit matcher: home teaser */
+.fit{padding:48px 0 52px;background:var(--blue-soft);border-top:2px solid var(--blue);border-bottom:1px solid var(--line)}
 .fit .wrap{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start}
-@media (max-width:900px){.fit .wrap{grid-template-columns:1fr;gap:28px}}
-.fit h2{font-size:clamp(26px,3.4vw,38px)}
-.fit .lead{font-size:16.5px}
-.fit textarea{width:100%;box-sizing:border-box;min-height:190px;resize:vertical;padding:14px 16px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--bg);color:var(--ink);font:inherit;font-size:15px;line-height:1.5;margin-top:18px}
-.fit textarea:focus{outline:2px solid var(--blue);outline-offset:2px;border-color:var(--blue)}
-.fit .ex{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.fit .ex span{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--ink-3);align-self:center;margin-right:2px}
-.fit .ex button{border:1px solid var(--line-2);background:var(--bg);color:var(--ink-2);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
-.fit .ex button:hover{border-color:var(--blue);color:var(--blue)}
-.fit .priv{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin-top:14px;line-height:1.5}
-.fit .out{border-top:1px solid var(--line);padding-top:6px;min-height:200px}
-.fit .empty{color:var(--ink-3);font-size:15px;padding:40px 0 0;max-width:46ch}
-.fit .sum{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);padding:18px 0 8px}
-.fit .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
-@media (max-width:720px){.fit .cols{grid-template-columns:1fr}}
-.fit .col h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:14px 0 6px;font-weight:600}
-.fit .col h4.no{color:#B4453A}
-.fit .hit{padding:12px 0;border-top:1px solid var(--line)}
-.fit .hit b{display:block;font-size:15px;letter-spacing:-.01em}
-.fit .hit b i{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-left:8px;border:1px solid var(--line-2);border-radius:4px;padding:1px 6px;vertical-align:middle}
-.fit .hit p{margin:4px 0 6px;font-size:14px;color:var(--ink-2);line-height:1.5}
-.fit .hit .ln a{font-size:13px;margin-right:14px;font-weight:600}
-.fit .hit .ln a::after{content:" ->"}
-.fit .hit.gap b{color:var(--ink-2)}
-.fit .hit .kw{font-family:var(--mono);font-size:11px;color:var(--ink-3);display:block;margin-top:2px}
-.fit .ask{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.fit .ask span{font-size:13.5px;color:var(--ink-3);max-width:46ch}
+@media (max-width:900px){.fit .wrap{grid-template-columns:1fr;gap:22px}}
+.fit h2{font-size:clamp(26px,3.4vw,38px);color:var(--blue-ink)}
+.fit .lead{font-size:16.5px;color:var(--ink)}
+.fit textarea,.fitpage textarea{width:100%;box-sizing:border-box;resize:vertical;padding:14px 16px;border:1px solid var(--line-2);border-radius:var(--r);background:var(--bg);color:var(--ink);font:inherit;font-size:15px;line-height:1.5}
+.fit textarea{min-height:120px;margin-top:6px}
+.fitpage textarea{min-height:170px}
+.fit textarea:focus,.fitpage textarea:focus{outline:2px solid var(--blue);outline-offset:2px;border-color:var(--blue)}
+.fit .row,.fitpage .row{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.fit .ex,.fitpage .ex{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fit .ex span,.fitpage .ex span{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--ink-3);margin-right:2px}
+.fit .ex button,.fitpage .ex button{border:1px solid var(--line-2);background:var(--bg);color:var(--ink-2);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.fit .ex button{border-color:var(--blue);color:var(--blue-ink)}
+.fit .ex button:hover,.fitpage .ex button:hover{border-color:var(--blue);color:var(--blue)}
+.fit .priv,.fitpage .priv{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:14px 0 0;line-height:1.5}
+.fit .priv{color:var(--blue-ink);opacity:.75}
+/* fit page */
+.fitpage{padding:0 0 90px}
+.fitpage .wrap{max-width:860px}
+.fitpage .ask-in{padding-bottom:26px;border-bottom:1px solid var(--line)}
+.fitpage .thread{padding-top:8px}
+.fitpage .empty{color:var(--ink-3);font-size:15px;padding:30px 0 0;max-width:52ch}
+.fitpage .you{margin:26px 0 0 auto;max-width:80%;background:var(--bg-2);border:1px solid var(--line);border-radius:14px 14px 4px 14px;padding:14px 18px;font-size:14.5px;color:var(--ink-2);white-space:pre-wrap;line-height:1.5;max-height:180px;overflow:hidden;position:relative}
+.fitpage .you.open{max-height:none}
+.fitpage .you .more{position:absolute;left:0;right:0;bottom:0;padding:26px 18px 10px;background:linear-gradient(transparent,var(--bg-2) 55%);text-align:right}
+.fitpage .you .more button{border:0;background:none;color:var(--blue);font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.fitpage .me{margin:18px auto 0 0;max-width:92%;border:1px solid var(--line);border-left:3px solid var(--blue);border-radius:4px 14px 14px 14px;padding:6px 22px 20px;background:var(--bg)}
+.fitpage .sum{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);padding:16px 0 4px}
+.fitpage .cols{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+@media (max-width:720px){.fitpage .cols{grid-template-columns:1fr}.fitpage .you,.fitpage .me{max-width:100%}}
+.fitpage .col h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:16px 0 4px;font-weight:600}
+.fitpage .col h4.no{color:#B4453A}
+.fitpage .hit{padding:11px 0;border-top:1px solid var(--line)}
+.fitpage .hit b{display:block;font-size:15px;letter-spacing:-.01em}
+.fitpage .hit b i{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-left:8px;border:1px solid var(--line-2);border-radius:4px;padding:1px 6px;vertical-align:middle}
+.fitpage .hit p{margin:4px 0 6px;font-size:14px;color:var(--ink-2);line-height:1.5}
+.fitpage .hit .ln a{font-size:13px;margin-right:14px;font-weight:600}
+.fitpage .hit .ln a::after{content:" ->"}
+.fitpage .hit.gap b{color:var(--ink-2)}
+.fitpage .hit .kw{font-family:var(--mono);font-size:11px;color:var(--ink-3);display:block;margin-top:2px}
+.fitpage .askm{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.fitpage .askm span{font-size:13.5px;color:var(--ink-3);max-width:46ch}
 .tiles{padding:76px 0}
 .tiles .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line-2)}
 @media (max-width:860px){.tiles .wrap{grid-template-columns:1fr}}
@@ -391,17 +397,18 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     </div>
   </header>
 
-  <section class="fit" id="fit">
+  <section class="fit" id="fitHome">
     <div class="wrap">
       <div>
         <div class="eyebrow">Fit check</div>
         <h2>Paste what you are looking for.</h2>
-        <p class="lead">A job post, a call for collaborators, a list of skills. The page checks it against a curated record of what I have done and shows the evidence with links, and says plainly what is not there.</p>
-        <textarea id="fitIn" aria-label="Paste a job description or a list of what you need" placeholder="Paste a job post or a few lines here..."></textarea>
-        <div class="ex"><span>Try:</span><button type="button" data-ex="pm">Program manager, AI safety</button><button type="button" data-ex="dev">Backend developer</button><button type="button" data-ex="train">Corporate AI training</button><button type="button" data-ex="res">Research assistant</button></div>
+        <p class="lead">A job post, a call for collaborators, a list of skills. You get back what in my record matches it, with the evidence, and what does not.</p>
+      </div>
+      <div>
+        <textarea id="fitHomeIn" aria-label="Paste a job description or a list of what you need" placeholder="Paste a job post or a few lines here..."></textarea>
+        <div class="row"><button class="btn primary" id="fitHomeGo">Check the fit <span class="arr">-&gt;</span></button><div class="ex"><span>Try:</span><button type="button" data-ex="pm">Program manager, AI safety</button><button type="button" data-ex="dev">Backend developer</button><button type="button" data-ex="train">Corporate AI training</button><button type="button" data-ex="res">Research assistant</button></div></div>
         <p class="priv">Runs in your browser. Nothing you paste leaves this page.</p>
       </div>
-      <div class="out" id="fitOut" aria-live="polite"><p class="empty">Results appear here as you type. Matches on the left with the evidence, gaps on the right. What I cannot match I will not pretend to.</p></div>
     </div>
   </section>
 
@@ -567,6 +574,19 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <div class="box"><span class="k">Fundraising</span><div><b>Wrote and submitted a 12-month research grant proposal</b> (2026): budget, milestones, an independent technical advisor named.</div></div>
     <div class="box"><span class="k">Evidence</span><div><b>Everything referenced on this page, in one place.</b> <a href="https://osf.io/hjfxr" target="_blank" rel="noopener">Pre-registration (OSF)</a> · <a href="https://osf.io/r6z3c" target="_blank" rel="noopener">Second pre-registration</a> · <a href="https://apartresearch.com/project/a-welfare-logger-wrote-its-subjects-false-memory-and-the-subject-believed-it-kkqb" target="_blank" rel="noopener">Apart paper</a> · <a href="https://forum.effectivealtruism.org/posts/FbtGKieKJAJKZze22/my-system-denied-having-memories-even-though-they-were" target="_blank" rel="noopener">EA Forum post</a> · <a href="https://github.com/ambradan/freedom-v2" target="_blank" rel="noopener">Freedom v2 code</a> · <a href="https://github.com/ambradan/freedom-replay" target="_blank" rel="noopener">Replay harness</a> · <a href="https://freedom-interface.vercel.app" target="_blank" rel="noopener">The system's own site</a> · <a href="https://capir-ai.com" target="_blank" rel="noopener">Capire l'IA</a> · <a href="#" data-open="session">Sample session</a> · <a href="#" data-open="guide">Facilitator guide</a></div></div>
     <div style="height:80px"></div>
+  </div></section>
+</div>
+
+<!-- ================= FIT ================= -->
+<div class="page" data-page="fit">
+  <div class="head center"><div class="wrap"><div class="eyebrow">Fit check</div><h1>Paste what you are looking for.</h1><p class="lead">A job post, a call for collaborators, a list of skills. It is matched in your browser against a curated record of what I have done: evidence with links on one side, what is not there on the other.</p></div></div>
+  <section class="fitpage"><div class="wrap">
+    <div class="ask-in">
+      <textarea id="fitIn" aria-label="Paste a job description or a list of what you need" placeholder="Paste a job post or a few lines here..."></textarea>
+      <div class="row"><button class="btn primary" id="fitGo">Check the fit <span class="arr">-&gt;</span></button><div class="ex"><span>Try:</span><button type="button" data-ex="pm">Program manager, AI safety</button><button type="button" data-ex="dev">Backend developer</button><button type="button" data-ex="train">Corporate AI training</button><button type="button" data-ex="res">Research assistant</button></div></div>
+      <p class="priv">Runs in your browser. Nothing you paste leaves this page. Ctrl+Enter also works.</p>
+    </div>
+    <div class="thread" id="fitOut"><p class="empty">Results appear here. Matches with the evidence, then the gaps. What I cannot match I will not pretend to.</p></div>
   </div></section>
 </div>
 
@@ -938,42 +958,49 @@ var FIT_EX={
  train:"Trainer for a corporate AI literacy program in a bank: generative AI fundamentals, risks, governance, hands-on exercises, online and in person, Italian, non-technical audience, curriculum design.",
  res:"Research assistant on AI evaluations and interpretability: Python, PyTorch, evals, sparse autoencoders, experiment design, pre-registration, scientific writing, English."
 };
+var fitText="";
 (function(){
- var inp=document.getElementById("fitIn"),out=document.getElementById("fitOut");if(!inp||!out)return;
- var UI={sum:function(a,b){return a+" matched · "+b+" not in my record";},yes:"In my record",no:"Not in my record",partial:"partial",nohit:"Nothing I can match yet. Paste a few more lines, or use one of the examples.",ask:"Ask me about the rest",askNote:"Opens your email client with what you pasted and this result, so I can answer the gaps myself.",other:"Anything else in your text that is not listed here I have no record of, and I will not invent one.",matchedOn:"matched on: "};
+ var inp=document.getElementById("fitIn"),out=document.getElementById("fitOut"),home=document.getElementById("fitHomeIn");if(!inp||!out)return;
+ var UI={sum:function(a,b){return a+" matched · "+b+" not in my record";},yes:"In my record",no:"Not in my record",partial:"partial",nohit:"Nothing I can match in that text. Paste a few more lines, or try one of the examples.",ask:"Ask me about the rest",askNote:"Opens your email client with what you pasted and this result, so I can answer the gaps myself.",other:"Anything else in your text that is not listed here I have no record of, and I will not invent one.",matchedOn:"matched on: ",more:"Show all",less:"Show less",pasted:"What I pasted:",subject:"From your site: a fit check"};
+ UI.empty=out.querySelector(".empty").textContent;
  function re(k){var s=k.trim().replace(/[.*+?^${}()|[\]\\]/g,"\\$&").replace(/\s+/g,"\\s+");return new RegExp("(^|[^a-z0-9])"+s+"(?:s|es|i|e)?(?=$|[^a-z0-9])","i");}
  var ITEMS=FIT.items.map(function(it){it.rx=it.k.map(function(k){return {k:k,r:re(k)};});return it;});
- function run(){
-  var txt=inp.value.toLowerCase().replace(/[“”"']/g," ");
+ function card(h,gap){var it=h.it;return '<div class="hit'+(gap?' gap':'')+'"><b>'+esc(it.n)+(it.lvl?'<i>'+UI.partial+'</i>':'')+'</b><p>'+esc(it.e)+'</p>'+(it.l&&it.l.length?'<div class="ln">'+it.l.map(function(l){return '<a href="'+l[1]+'"'+(l[1].charAt(0)==="#"?'':' target="_blank" rel="noopener"')+'>'+esc(l[0])+'</a>';}).join('')+'</div>':'')+'<span class="kw">'+UI.matchedOn+esc(h.on.join(", "))+'</span></div>';}
+ function render(){
+  var raw=fitText,txt=raw.toLowerCase().replace(/[“”"']/g," ");
   if(txt.trim().length<3){out.innerHTML='<p class="empty">'+UI.empty+'</p>';return;}
   var hits=[],gaps=[];
   ITEMS.forEach(function(it){var on=[];it.rx.forEach(function(x){if(x.r.test(" "+txt+" "))on.push(x.k.trim());});if(on.length){var h={it:it,on:on};(it.g==="gap"?gaps:hits).push(h);}});
   hits.sort(function(a,b){return b.on.length-a.on.length;});
-  if(!hits.length&&!gaps.length){out.innerHTML='<p class="empty">'+UI.nohit+'</p>';return;}
+  var you='<div class="you" id="fitYou">'+esc(raw)+(raw.length>420?'<div class="more"><button type="button" id="fitMore">'+UI.more+'</button></div>':'')+'</div>';
+  if(!hits.length&&!gaps.length){out.innerHTML=you+'<div class="me"><p class="empty" style="padding-top:14px">'+UI.nohit+'</p></div>';wire();return;}
   var byG={};hits.forEach(function(h){(byG[h.it.g]=byG[h.it.g]||[]).push(h);});
   var order=["prog","gov","method","ai","lang","infra","comm","sector","how","tongue"];
-  var left='';order.forEach(function(g){if(!byG[g])return;left+='<h4>'+esc(FIT.groups[g])+'</h4>'+byG[g].map(card).join('');});
+  var left='';order.forEach(function(g){if(!byG[g])return;left+='<h4>'+esc(FIT.groups[g])+'</h4>'+byG[g].map(function(h){return card(h);}).join('');});
   var right=gaps.map(function(h){return card(h,true);}).join('');
-  var mailBody=UI.pasted+"\n\n"+inp.value.slice(0,1400)+"\n\n"+UI.yes+": "+hits.map(function(h){return h.it.n;}).join("; ")+"\n"+UI.no+": "+gaps.map(function(h){return h.it.n;}).join("; ");
+  var mailBody=UI.pasted+"\n\n"+raw.slice(0,1400)+"\n\n"+UI.yes+": "+hits.map(function(h){return h.it.n;}).join("; ")+"\n"+UI.no+": "+gaps.map(function(h){return h.it.n;}).join("; ");
   var mail="mailto:ambradan91@gmail.com?subject="+encodeURIComponent(UI.subject)+"&body="+encodeURIComponent(mailBody);
-  out.innerHTML='<div class="sum">'+UI.sum(hits.length,gaps.length)+'</div><div class="cols"><div class="col">'+(left||'<h4>'+UI.yes+'</h4>')+'</div><div class="col"><h4 class="no">'+UI.no+'</h4>'+right+'<p class="hit"><span class="kw" style="font-size:12.5px;line-height:1.5">'+UI.other+'</span></p></div></div><div class="ask"><a class="btn primary" href="'+mail+'">'+UI.ask+' <span class="arr">-&gt;</span></a><span>'+UI.askNote+'</span></div>';
-  if(window.reveal)window.reveal();
+  out.innerHTML=you+'<div class="me"><div class="sum">'+UI.sum(hits.length,gaps.length)+'</div><div class="cols"><div class="col">'+(left||'<h4>'+UI.yes+'</h4>')+'</div><div class="col"><h4 class="no">'+UI.no+'</h4>'+right+'<p class="hit"><span class="kw" style="font-size:12.5px;line-height:1.5">'+UI.other+'</span></p></div></div><div class="askm"><a class="btn primary" href="'+mail+'">'+UI.ask+' <span class="arr">-&gt;</span></a><span>'+UI.askNote+'</span></div></div>';
+  wire();
  }
- function card(h,gap){var it=h.it;return '<div class="hit'+(gap?' gap':'')+'"><b>'+esc(it.n)+(it.lvl?'<i>'+UI.partial+'</i>':'')+'</b><p>'+esc(it.e)+'</p>'+(it.l&&it.l.length?'<div class="ln">'+it.l.map(function(l){return '<a href="'+l[1]+'"'+(l[1].charAt(0)==="#"?'':' target="_blank" rel="noopener"')+'>'+esc(l[0])+'</a>';}).join('')+'</div>':'')+'<span class="kw">'+UI.matchedOn+esc(h.on.join(", "))+'</span></div>';}
- UI.empty=out.querySelector(".empty").textContent;UI.pasted="What I pasted:";UI.subject="From your site: a fit check";
- var tm;inp.addEventListener("input",function(){clearTimeout(tm);tm=setTimeout(run,160);});
- Array.prototype.forEach.call(document.querySelectorAll(".fit .ex button"),function(b){b.onclick=function(){inp.value=FIT_EX[b.getAttribute("data-ex")];run();inp.focus();};});
+ function wire(){var m=document.getElementById("fitMore");if(m){m.onclick=function(){var y=document.getElementById("fitYou");y.classList.toggle("open");m.textContent=y.classList.contains("open")?UI.less:UI.more;};}}
+ function go(txt){fitText=txt||"";inp.value=fitText;if(location.hash==="#fit"){render();window.scrollTo({top:out.getBoundingClientRect().top+scrollY-90,behavior:"smooth"});}else{location.hash="#fit";}}
+ window.fitRender=function(){inp.value=fitText;render();};
+ document.getElementById("fitGo").onclick=function(){go(inp.value);};
+ inp.addEventListener("keydown",function(e){if((e.ctrlKey||e.metaKey)&&e.key==="Enter")go(inp.value);});
+ if(home){document.getElementById("fitHomeGo").onclick=function(){go(home.value);};home.addEventListener("keydown",function(e){if((e.ctrlKey||e.metaKey)&&e.key==="Enter")go(home.value);});}
+ Array.prototype.forEach.call(document.querySelectorAll(".ex button[data-ex]"),function(b){b.onclick=function(){go(FIT_EX[b.getAttribute("data-ex")]);};});
 })();
 
 /* ================= ROUTER ================= */
 var pages=Array.prototype.slice.call(document.querySelectorAll(".page")),navLinks=Array.prototype.slice.call(document.querySelectorAll(".nav a[href^='#']")),mobile=document.getElementById("mobile");
-var ALIAS={enais:"programs",fit:"home"};
+var ALIAS={enais:"programs"};
 function route(){
   var h=(location.hash||"#home").replace("#","");
   if(h==="session"||h==="guide"){show("programs");openOv(h);return;}
-  var raw=h;h=ALIAS[h]||h;
+  h=ALIAS[h]||h;
   show(pages.some(function(p){return p.dataset.page===h;})?h:"home");
-  if(raw==="fit"){setTimeout(function(){var f=document.getElementById("fit");if(f){f.scrollIntoView({behavior:"smooth",block:"start"});var ta=document.getElementById("fitIn");if(ta)setTimeout(function(){ta.focus({preventScroll:true});},500);}},60);}
+  if(h==="fit"&&window.fitRender){window.fitRender();if(fitText){setTimeout(function(){var o=document.getElementById("fitOut");window.scrollTo({top:o.getBoundingClientRect().top+scrollY-90,behavior:"smooth"});},120);}}
 }
 function show(name){
   pages.forEach(function(p){p.classList.toggle("on",p.dataset.page===name);});
