@@ -136,7 +136,13 @@ h2{font-weight:700;font-stretch:92%;letter-spacing:-.02em;line-height:1.06;text-
 
 /* tiles */
 /* fit matcher */
-.fit{padding:56px 0 60px;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fit{padding:56px 0 60px;background:var(--blue-soft);border-top:2px solid var(--blue);border-bottom:1px solid var(--line)}
+.fit h2{color:var(--blue-ink)}
+.fit .lead{color:var(--ink)}
+.fit .out{border-top-color:var(--blue)}
+.fit .ex button{border-color:var(--blue);color:var(--blue-ink)}
+.fit .ex span,.fit .priv{color:var(--blue-ink);opacity:.75}
+.fit .empty{color:var(--blue-ink);opacity:.7}
 .fit textarea{background:var(--bg)}
 .fit .ex button{background:var(--bg)}
 .fit .wrap{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start}
@@ -375,7 +381,6 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <div class="cta">
           <a class="btn primary" href="#programs"><i class="pulse"></i>Running programs in AI safety <span class="arr">-&gt;</span></a>
           <a class="btn" href="#research">See the research</a>
-          <a class="btn" href="#fit">Paste what you are looking for</a>
         </div>
         <div class="meta"><span>Day <b id="rdays">0</b> of Freedom v2</span><span>Better Futures fellow, ENAIS</span><span>Sentient Futures mentorship</span><span>Cambridge Digital Minds</span><span>MATS Winter 2027, Stage 2</span><span id="rnext">Next on stage: TEDxBarletta</span></div>
       </div>
