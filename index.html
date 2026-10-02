@@ -179,6 +179,25 @@ h2{font-weight:700;font-stretch:92%;letter-spacing:-.02em;line-height:1.06;text-
 .fitpage .hit .kw{font-family:var(--mono);font-size:11px;color:var(--ink-3);display:block;margin-top:2px}
 .fitpage .askm{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 .fitpage .askm span{font-size:13.5px;color:var(--ink-3);max-width:46ch}
+.fitpage .askm.exp{border-top:0;padding-top:0;margin-top:14px;gap:8px}
+.fitpage .askm.exp .lbl{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-right:4px}
+.fitpage .askm.exp button{border:1px solid var(--line-2);background:var(--bg);color:var(--ink);border-radius:var(--r);padding:7px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.fitpage .askm.exp button:hover{border-color:var(--blue);color:var(--blue)}
+.fitpage .askm.exp span:last-child{flex-basis:100%;font-size:12.5px}
+.printhead{display:none}
+@media print{
+ body.printfit{background:#fff;color:#000}
+ body.printfit nav,body.printfit footer,body.printfit .head,body.printfit .ask-in,body.printfit .askm,body.printfit .you .more{display:none!important}
+ body.printfit .page{display:none}body.printfit .page[data-page="fit"]{display:block}
+ body.printfit .printhead{display:block;font:13px/1.5 var(--sans);border-bottom:1px solid #000;padding:0 0 10px;margin-bottom:10px}
+ body.printfit .fitpage .wrap{max-width:none;padding:0}
+ body.printfit .you{max-height:none;max-width:100%;margin:10px 0;background:#f4f4f4;border-color:#ccc}
+ body.printfit .me{border:0;padding:0;max-width:100%}
+ body.printfit .cols{grid-template-columns:1fr 1fr}
+ body.printfit .hit{break-inside:avoid}
+ body.printfit a{color:#000;text-decoration:none}
+ body.printfit .hit .ln a::after{content:" (" attr(data-url) ")";font-size:10px;color:#555}
+}
 .tiles{padding:76px 0}
 .tiles .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line-2)}
 @media (max-width:860px){.tiles .wrap{grid-template-columns:1fr}}
@@ -586,6 +605,7 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="row"><button class="btn primary" id="fitGo">Check the fit <span class="arr">-&gt;</span></button><div class="ex"><span>Try:</span><button type="button" data-ex="pm">Program manager, AI safety</button><button type="button" data-ex="dev">Backend developer</button><button type="button" data-ex="train">Corporate AI training</button><button type="button" data-ex="res">Research assistant</button></div></div>
       <p class="priv">Runs in your browser. Nothing you paste leaves this page. Ctrl+Enter also works.</p>
     </div>
+    <div class="printhead" id="printHead"></div>
     <div class="thread" id="fitOut"><p class="empty">Results appear here. Matches with the evidence, then the gaps. What I cannot match I will not pretend to.</p></div>
   </div></section>
 </div>
@@ -964,8 +984,8 @@ var FIT_EX={
 var fitText="";
 (function(){
  var inp=document.getElementById("fitIn"),out=document.getElementById("fitOut"),home=document.getElementById("fitHomeIn");if(!inp||!out)return;
- var UI_EN={sum:function(a,b){return a+" matched · "+b+" not in my record";},yes:"In my record",no:"Not in my record",partial:"partial",nohit:"Nothing I can match in that text. Paste a few more lines, or try one of the examples.",ask:"Ask me about the rest",askNote:"Opens your email client with what you pasted and this result, so I can answer the gaps myself.",other:"Anything else in your text that is not listed here I have no record of, and I will not invent one.",matchedOn:"matched on: ",more:"Show all",less:"Show less",pasted:"What I pasted:",subject:"From your site: a fit check",lang:"Your text reads as English, so the answer is in English."};
- var UI_IT={sum:function(a,b){return a+" corrispondenze · "+b+" non nel mio record";},yes:"Nel mio record",no:"Non nel mio record",partial:"parziale",nohit:"Niente che io possa abbinare in quel testo. Incolla qualche riga in più, o prova uno degli esempi.",ask:"Chiedimi del resto",askNote:"Apre il tuo client di posta con quello che hai incollato e questo risultato, così rispondo io ai buchi.",other:"Di tutto il resto che c\'è nel tuo testo e non compare qui non ho un record, e non ne inventerò uno.",matchedOn:"trovato su: ",more:"Mostra tutto",less:"Mostra meno",pasted:"Quello che ho incollato:",subject:"Dal tuo sito: una verifica di compatibilità",lang:"Il testo è in italiano, quindi la risposta è in italiano."};
+ var UI_EN={sum:function(a,b){return a+" matched · "+b+" not in my record";},yes:"In my record",no:"Not in my record",partial:"partial",nohit:"Nothing I can match in that text. Paste a few more lines, or try one of the examples.",ask:"Ask me about the rest",askNote:"Opens your email client with what you pasted and this result, so I can answer the gaps myself.",other:"Anything else in your text that is not listed here I have no record of, and I will not invent one.",matchedOn:"matched on: ",more:"Show all",less:"Show less",pasted:"What I pasted:",subject:"From your site: a fit check",lang:"Your text reads as English, so the answer is in English.",exp:"Export",expNote:"Download this result for your ATS or notes.",pdf:"PDF",csv:"CSV (Excel)",txt:"Text",json:"JSON",hdr:["Candidate","Email","Site","Date","Section","Group","Item","Level","Evidence","Links","Matched on"],full:"full",gapw:"not in record",cvNote:"Full CV on request by email."};
+ var UI_IT={sum:function(a,b){return a+" corrispondenze · "+b+" non nel mio record";},yes:"Nel mio record",no:"Non nel mio record",partial:"parziale",nohit:"Niente che io possa abbinare in quel testo. Incolla qualche riga in più, o prova uno degli esempi.",ask:"Chiedimi del resto",askNote:"Apre il tuo client di posta con quello che hai incollato e questo risultato, così rispondo io ai buchi.",other:"Di tutto il resto che c\'è nel tuo testo e non compare qui non ho un record, e non ne inventerò uno.",matchedOn:"trovato su: ",more:"Mostra tutto",less:"Mostra meno",pasted:"Quello che ho incollato:",subject:"Dal tuo sito: una verifica di compatibilità",lang:"Il testo è in italiano, quindi la risposta è in italiano.",exp:"Esporta",expNote:"Scarica questo risultato per il tuo ATS o i tuoi appunti.",pdf:"PDF",csv:"CSV (Excel)",txt:"Testo",json:"JSON",hdr:["Candidata","Email","Sito","Data","Sezione","Gruppo","Voce","Livello","Prova","Link","Trovato su"],full:"pieno",gapw:"non nel record",cvNote:"CV completo su richiesta via email."};
  var UI=PAGE_LANG==="it"?UI_IT:UI_EN;
  var SW_IT=["il","lo","la","gli","le","di","del","della","dei","delle","che","per","con","una","un","uno","non","sono","nel","nella","cerchiamo","ricerchiamo","esperienza","anni","lavoro","richiesta","richiesto","competenze","conoscenza","gradita","sede","ore","settimana","anche","sui","sulle","alla","agli","più"];
  var SW_EN=["the","and","for","with","you","will","we","our","of","to","is","are","experience","years","role","team","skills","remote","required","this","that","have","has","as","or","be","by","from","on","at","an"];
@@ -974,7 +994,7 @@ var fitText="";
  function re(k){var s=k.trim().replace(/[.*+?^${}()|[\]\\]/g,"\\$&").replace(/\s+/g,"\\s+");return new RegExp("(^|[^a-z0-9])"+s+"(?:s|es|i|e)?(?=$|[^a-z0-9])","i");}
  [FIT_EN,FIT_IT].forEach(function(F){F.items.forEach(function(it){it.rx=it.k.map(function(k){return {k:k,r:re(k)};});});});
  var ITEMS=FIT.items;
- function card(h,gap){var it=h.it;return '<div class="hit'+(gap?' gap':'')+'"><b>'+esc(it.n)+(it.lvl?'<i>'+UI.partial+'</i>':'')+'</b><p>'+esc(it.e)+'</p>'+(it.l&&it.l.length?'<div class="ln">'+it.l.map(function(l){return '<a href="'+l[1]+'"'+(l[1].charAt(0)==="#"?'':' target="_blank" rel="noopener"')+'>'+esc(l[0])+'</a>';}).join('')+'</div>':'')+'<span class="kw">'+UI.matchedOn+esc(h.on.join(", "))+'</span></div>';}
+ function card(h,gap){var it=h.it;return '<div class="hit'+(gap?' gap':'')+'"><b>'+esc(it.n)+(it.lvl?'<i>'+UI.partial+'</i>':'')+'</b><p>'+esc(it.e)+'</p>'+(it.l&&it.l.length?'<div class="ln">'+it.l.map(function(l){return '<a href="'+l[1]+'" data-url="'+(l[1].charAt(0)==="#"?"https://ambradan.github.io/"+l[1]:l[1])+'"'+(l[1].charAt(0)==="#"?'':' target="_blank" rel="noopener"')+'>'+esc(l[0])+'</a>';}).join('')+'</div>':'')+'<span class="kw">'+UI.matchedOn+esc(h.on.join(", "))+'</span></div>';}
  function render(){
   var raw=fitText,txt=raw.toLowerCase().replace(/[“”"']/g," ");
   var L=detect(raw);FIT=L==="it"?FIT_IT:FIT_EN;ITEMS=FIT.items;UI=L==="it"?UI_IT:UI_EN;var langNote=L!==PAGE_LANG?'<div class="kw" style="margin:14px 0 -6px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)">'+UI.lang+'</div>':"";
@@ -990,10 +1010,22 @@ var fitText="";
   var right=gaps.map(function(h){return card(h,true);}).join('');
   var mailBody=UI.pasted+"\n\n"+raw.slice(0,1400)+"\n\n"+UI.yes+": "+hits.map(function(h){return h.it.n;}).join("; ")+"\n"+UI.no+": "+gaps.map(function(h){return h.it.n;}).join("; ");
   var mail="mailto:ambradan91@gmail.com?subject="+encodeURIComponent(UI.subject)+"&body="+encodeURIComponent(mailBody);
-  out.innerHTML=you+'<div class="me">'+langNote+'<div class="sum">'+UI.sum(hits.length,gaps.length)+'</div><div class="cols"><div class="col">'+(left||'<h4>'+UI.yes+'</h4>')+'</div><div class="col"><h4 class="no">'+UI.no+'</h4>'+right+'<p class="hit"><span class="kw" style="font-size:12.5px;line-height:1.5">'+UI.other+'</span></p></div></div><div class="askm"><a class="btn primary" href="'+mail+'">'+UI.ask+' <span class="arr">-&gt;</span></a><span>'+UI.askNote+'</span></div></div>';
+  fitLast={lang:L,raw:raw,hits:hits,gaps:gaps,UI:UI};
+  out.innerHTML=you+'<div class="me">'+langNote+'<div class="sum">'+UI.sum(hits.length,gaps.length)+'</div><div class="cols"><div class="col">'+(left||'<h4>'+UI.yes+'</h4>')+'</div><div class="col"><h4 class="no">'+UI.no+'</h4>'+right+'<p class="hit"><span class="kw" style="font-size:12.5px;line-height:1.5">'+UI.other+'</span></p></div></div><div class="askm"><a class="btn primary" href="'+mail+'">'+UI.ask+' <span class="arr">-&gt;</span></a><span>'+UI.askNote+'</span></div><div class="askm exp"><span class="lbl">'+UI.exp+'</span><button type="button" data-x="pdf">'+UI.pdf+'</button><button type="button" data-x="csv">'+UI.csv+'</button><button type="button" data-x="txt">'+UI.txt+'</button><button type="button" data-x="json">'+UI.json+'</button><span>'+UI.expNote+'</span></div></div>';
   wire();
  }
- function wire(){var m=document.getElementById("fitMore");if(m){m.onclick=function(){var y=document.getElementById("fitYou");y.classList.toggle("open");m.textContent=y.classList.contains("open")?UI.less:UI.more;};}}
+ var fitLast=null;
+ function abs(u){return u.charAt(0)==="#"?"https://ambradan.github.io/"+u:u;}
+ function rows(){var r=[],d=new Date().toISOString().slice(0,10),U=fitLast.UI;function row(h,sec){r.push(["Ambra Danesin","ambradan91@gmail.com","https://ambradan.github.io",d,sec,h.it.g==="gap"?U.no:FIT.groups[h.it.g],h.it.n,h.it.g==="gap"?U.gapw:(h.it.lvl?U.partial:U.full),h.it.e,(h.it.l||[]).map(function(l){return abs(l[1]);}).join(" "),h.on.join(", ")]);}fitLast.hits.forEach(function(h){row(h,U.yes);});fitLast.gaps.forEach(function(h){row(h,U.no);});return r;}
+ function dl(name,mime,data){var b=new Blob([data],{type:mime}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},800);}
+ function csvq(v){v=String(v==null?"":v);return /[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}
+ function exportAs(kind){if(!fitLast)return;var U=fitLast.UI,d=new Date().toISOString().slice(0,10),base="ambra-danesin-fit-"+d;
+  if(kind==="csv"){var r=[U.hdr].concat(rows());dl(base+".csv","text/csv;charset=utf-8","﻿"+r.map(function(x){return x.map(csvq).join(";");}).join("\r\n"));}
+  else if(kind==="json"){dl(base+".json","application/json",JSON.stringify({candidate:"Ambra Danesin",email:"ambradan91@gmail.com",site:"https://ambradan.github.io",date:d,language:fitLast.lang,query:fitLast.raw,matches:fitLast.hits.map(function(h){return {group:FIT.groups[h.it.g],item:h.it.n,level:h.it.lvl||"full",evidence:h.it.e,links:(h.it.l||[]).map(function(l){return {label:l[0],url:abs(l[1])};}),matched_on:h.on};}),gaps:fitLast.gaps.map(function(h){return {item:h.it.n,note:h.it.e,matched_on:h.on};})},null,2));}
+  else if(kind==="txt"){var s="Ambra Danesin · ambradan91@gmail.com · https://ambradan.github.io · "+d+"\n"+U.cvNote+"\n\n"+U.pasted+"\n"+fitLast.raw+"\n\n"+U.sum(fitLast.hits.length,fitLast.gaps.length).toUpperCase()+"\n\n"+U.yes.toUpperCase()+"\n"+fitLast.hits.map(function(h){return "- "+h.it.n+(h.it.lvl?" ("+U.partial+")":"")+"\n  "+h.it.e+(h.it.l&&h.it.l.length?"\n  "+h.it.l.map(function(l){return abs(l[1]);}).join("  "):"")+"\n  "+U.matchedOn+h.on.join(", ");}).join("\n")+"\n\n"+U.no.toUpperCase()+"\n"+(fitLast.gaps.map(function(h){return "- "+h.it.n+": "+h.it.e+" ("+U.matchedOn+h.on.join(", ")+")";}).join("\n")||"-")+"\n\n"+U.other+"\n";dl(base+".txt","text/plain;charset=utf-8",s);}
+  else if(kind==="pdf"){document.body.classList.add("printfit");var hd=document.getElementById("printHead");hd.innerHTML='<b>Ambra Danesin</b> · ambradan91@gmail.com · ambradan.github.io · '+d+'<br>'+esc(U.cvNote);var done=function(){document.body.classList.remove("printfit");window.removeEventListener("afterprint",done);};window.addEventListener("afterprint",done);setTimeout(function(){window.print();},50);}
+ }
+ function wire(){Array.prototype.forEach.call(out.querySelectorAll(".exp button"),function(b){b.onclick=function(){exportAs(b.getAttribute("data-x"));};});var m=document.getElementById("fitMore");if(m){m.onclick=function(){var y=document.getElementById("fitYou");y.classList.toggle("open");m.textContent=y.classList.contains("open")?UI.less:UI.more;};}}
  function go(txt){fitText=txt||"";inp.value=fitText;if(location.hash==="#fit"){render();window.scrollTo({top:out.getBoundingClientRect().top+scrollY-90,behavior:"smooth"});}else{location.hash="#fit";}}
  window.fitRender=function(){inp.value=fitText;render();};
  document.getElementById("fitGo").onclick=function(){go(inp.value);};
