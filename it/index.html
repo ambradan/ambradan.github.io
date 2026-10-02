@@ -136,7 +136,9 @@ h2{font-weight:700;font-stretch:92%;letter-spacing:-.02em;line-height:1.06;text-
 
 /* tiles */
 /* fit matcher */
-.fit{padding:70px 0 10px;background:var(--bg)}
+.fit{padding:56px 0 60px;background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fit textarea{background:var(--bg)}
+.fit .ex button{background:var(--bg)}
 .fit .wrap{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start}
 @media (max-width:900px){.fit .wrap{grid-template-columns:1fr;gap:28px}}
 .fit h2{font-size:clamp(26px,3.4vw,38px)}
@@ -347,7 +349,7 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <div class="wrap">
     <a class="brand" href="#home">Ambra Danesin</a>
     <div class="links" id="links">
-      <a href="#home">Home</a><a href="#research">Ricerca</a><a href="#teaching">Formazione</a><a href="#work">Lavoro</a><a href="#programs"><i class="pulse"></i>Programmi</a><a href="#contact">Contatti</a>
+      <a href="#home">Home</a><a href="#research">Ricerca</a><a href="#teaching">Formazione</a><a href="#work">Lavoro</a><a href="#programs"><i class="pulse"></i>Programmi</a><a href="#fit">Compatibilità</a><a href="#contact">Contatti</a>
     </div>
     <div class="right">
       <button class="themebtn" id="theme" aria-label="Tema chiaro o scuro" title="Chiaro / scuro"><svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
@@ -357,7 +359,7 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     </div>
   </div>
   <div class="mobile" id="mobile">
-    <a href="#home">Home</a><a href="#research">Ricerca</a><a href="#teaching">Formazione</a><a href="#work">Lavoro</a><a href="#programs"><i class="pulse"></i>Programmi</a><a href="#contact">Contatti</a>
+    <a href="#home">Home</a><a href="#research">Ricerca</a><a href="#teaching">Formazione</a><a href="#work">Lavoro</a><a href="#programs"><i class="pulse"></i>Programmi</a><a href="#fit">Compatibilità</a><a href="#contact">Contatti</a>
   </div>
 </nav>
 
@@ -373,6 +375,7 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
         <div class="cta">
           <a class="btn primary" href="#programs"><i class="pulse"></i>Gestire programmi in AI safety <span class="arr">-&gt;</span></a>
           <a class="btn" href="#research">Vedi la ricerca</a>
+          <a class="btn" href="#fit">Incolla quello che cerchi</a>
         </div>
         <div class="meta"><span>Giorno <b id="rdays">0</b> di Freedom v2</span><span>Better Futures fellow, ENAIS</span><span>Mentorship Sentient Futures</span><span>Cambridge Digital Minds</span><span>MATS inverno 2027, Stage 2</span><span id="rnext">Prossimo palco: TEDxBarletta</span></div>
       </div>
@@ -382,8 +385,6 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       </div>
     </div>
   </header>
-
-  <div class="marq"><div class="wrap"><div class="label">Ho lavorato, insegnato, pubblicato o sono stata ammessa qui</div><div class="lane"><div class="track" id="marq"></div></div><div class="hint">Clicca un nome per vedere cosa, quando e come.</div></div></div>
 
   <section class="fit" id="fit">
     <div class="wrap">
@@ -398,6 +399,8 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
       <div class="out" id="fitOut" aria-live="polite"><p class="empty">I risultati compaiono qui mentre scrivi. A sinistra le corrispondenze con le prove, a destra i buchi. Quello che non trovo non lo invento.</p></div>
     </div>
   </section>
+
+  <div class="marq"><div class="wrap"><div class="label">Ho lavorato, insegnato, pubblicato o sono stata ammessa qui</div><div class="lane"><div class="track" id="marq"></div></div><div class="hint">Clicca un nome per vedere cosa, quando e come.</div></div></div>
 
   <section class="tiles">
     <div class="wrap">
@@ -959,12 +962,13 @@ var FIT_EX={
 
 /* ================= ROUTER ================= */
 var pages=Array.prototype.slice.call(document.querySelectorAll(".page")),navLinks=Array.prototype.slice.call(document.querySelectorAll(".nav a[href^='#']")),mobile=document.getElementById("mobile");
-var ALIAS={enais:"programs"};
+var ALIAS={enais:"programs",fit:"home"};
 function route(){
   var h=(location.hash||"#home").replace("#","");
   if(h==="session"||h==="guide"){show("programs");openOv(h);return;}
-  h=ALIAS[h]||h;
+  var raw=h;h=ALIAS[h]||h;
   show(pages.some(function(p){return p.dataset.page===h;})?h:"home");
+  if(raw==="fit"){setTimeout(function(){var f=document.getElementById("fit");if(f){f.scrollIntoView({behavior:"smooth",block:"start"});var ta=document.getElementById("fitIn");if(ta)setTimeout(function(){ta.focus({preventScroll:true});},500);}},60);}
 }
 function show(name){
   pages.forEach(function(p){p.classList.toggle("on",p.dataset.page===name);});
