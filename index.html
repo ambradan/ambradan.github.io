@@ -11,6 +11,10 @@
 <meta name="theme-color" content="#2B5BFF">
 <link rel="alternate" hreflang="en" href="https://ambradan.github.io/">
 <link rel="alternate" hreflang="it" href="https://ambradan.github.io/it/">
+<script>window.goatcounter={no_onload:true,no_events:true};
+function gcHit(){try{if(!window.goatcounter||!goatcounter.count)return;var h=(location.hash||"#home").replace("#","");var p=(document.documentElement.lang==="it"?"/it":"")+"/"+(h==="home"?"":h);goatcounter.count({path:p,title:document.title});}catch(e){}}
+function gcEvent(n){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:n,title:n,event:true});}catch(e){}}</script>
+<script data-goatcounter="https://ambra.goatcounter.com/count" async src="https://gc.zgo.at/count.js" onload="gcHit()"></script>
 <link rel="alternate" hreflang="x-default" href="https://ambradan.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B5BFF'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-weight='800' font-size='36' fill='white'%3EA%3C/text%3E%3C/svg%3E">
 <style>
@@ -644,7 +648,7 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <div class="fcol"><h5>Elsewhere</h5><a href="https://www.linkedin.com/in/ambradanesin/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/ambradan" target="_blank" rel="noopener">GitHub</a><a href="https://capir-ai.com" target="_blank" rel="noopener">Capire l'IA</a><a href="https://freedom-interface.vercel.app" target="_blank" rel="noopener">Freedom v2</a><a href="https://osf.io/hjfxr" target="_blank" rel="noopener">OSF pre-registration</a></div>
     <div class="fcol"><h5>Write</h5><a href="mailto:ambradan91@gmail.com">ambradan91@gmail.com</a><p>Italian or English. Usually within two days.</p></div>
   </div>
-  <div class="wrap fbar"><span>&copy; <span id="yr"></span> Ambra Danesin · updated <span id="upd"></span></span><span>No cookies, no analytics, no third-party fonts. Hosted on GitHub Pages. The map loads from OpenStreetMap only if you open it.</span></div>
+  <div class="wrap fbar"><span>&copy; <span id="yr"></span> Ambra Danesin · updated <span id="upd"></span></span><span>No cookies, no third-party fonts. Page views counted with GoatCounter, no personal data stored. Hosted on GitHub Pages. The map loads from OpenStreetMap only if you open it.</span></div>
 </footer>
 
 <div class="mod" id="mod"><div class="m"><button class="x" id="modx">Close</button><div id="modBody"></div></div></div>
@@ -943,7 +947,7 @@ function initMap(){
   setTimeout(function(){if(!document.querySelector("#map img.leaflet-tile-loaded"))document.getElementById("map").classList.add("notiles");},3500);
 }
 
-document.getElementById("showMap").onclick=initMap;
+document.getElementById("showMap").onclick=function(){gcEvent("map-open");initMap();};
 
 /* cities strip */
 (function(){var c=document.getElementById("cities");var today=new Date().toISOString().slice(0,10);
@@ -1019,19 +1023,19 @@ var fitText="";
  function rows(){var r=[],d=new Date().toISOString().slice(0,10),U=fitLast.UI;function row(h,sec){r.push(["Ambra Danesin","ambradan91@gmail.com","https://ambradan.github.io",d,sec,h.it.g==="gap"?U.no:FIT.groups[h.it.g],h.it.n,h.it.g==="gap"?U.gapw:(h.it.lvl?U.partial:U.full),h.it.e,(h.it.l||[]).map(function(l){return abs(l[1]);}).join(" "),h.on.join(", ")]);}fitLast.hits.forEach(function(h){row(h,U.yes);});fitLast.gaps.forEach(function(h){row(h,U.no);});return r;}
  function dl(name,mime,data){var b=new Blob([data],{type:mime}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},800);}
  function csvq(v){v=String(v==null?"":v);return /[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}
- function exportAs(kind){if(!fitLast)return;var U=fitLast.UI,d=new Date().toISOString().slice(0,10),base="ambra-danesin-fit-"+d;
+ function exportAs(kind){if(!fitLast)return;gcEvent("fit-export-"+kind);var U=fitLast.UI,d=new Date().toISOString().slice(0,10),base="ambra-danesin-fit-"+d;
   if(kind==="csv"){var r=[U.hdr].concat(rows());dl(base+".csv","text/csv;charset=utf-8","﻿"+r.map(function(x){return x.map(csvq).join(";");}).join("\r\n"));}
   else if(kind==="json"){dl(base+".json","application/json",JSON.stringify({candidate:"Ambra Danesin",email:"ambradan91@gmail.com",site:"https://ambradan.github.io",date:d,language:fitLast.lang,query:fitLast.raw,matches:fitLast.hits.map(function(h){return {group:FIT.groups[h.it.g],item:h.it.n,level:h.it.lvl||"full",evidence:h.it.e,links:(h.it.l||[]).map(function(l){return {label:l[0],url:abs(l[1])};}),matched_on:h.on};}),gaps:fitLast.gaps.map(function(h){return {item:h.it.n,note:h.it.e,matched_on:h.on};})},null,2));}
   else if(kind==="txt"){var s="Ambra Danesin · ambradan91@gmail.com · https://ambradan.github.io · "+d+"\n"+U.cvNote+"\n\n"+U.pasted+"\n"+fitLast.raw+"\n\n"+U.sum(fitLast.hits.length,fitLast.gaps.length).toUpperCase()+"\n\n"+U.yes.toUpperCase()+"\n"+fitLast.hits.map(function(h){return "- "+h.it.n+(h.it.lvl?" ("+U.partial+")":"")+"\n  "+h.it.e+(h.it.l&&h.it.l.length?"\n  "+h.it.l.map(function(l){return abs(l[1]);}).join("  "):"")+"\n  "+U.matchedOn+h.on.join(", ");}).join("\n")+"\n\n"+U.no.toUpperCase()+"\n"+(fitLast.gaps.map(function(h){return "- "+h.it.n+": "+h.it.e+" ("+U.matchedOn+h.on.join(", ")+")";}).join("\n")||"-")+"\n\n"+U.other+"\n";dl(base+".txt","text/plain;charset=utf-8",s);}
   else if(kind==="pdf"){document.body.classList.add("printfit");var hd=document.getElementById("printHead");hd.innerHTML='<b>Ambra Danesin</b> · ambradan91@gmail.com · ambradan.github.io · '+d+'<br>'+esc(U.cvNote);var done=function(){document.body.classList.remove("printfit");window.removeEventListener("afterprint",done);};window.addEventListener("afterprint",done);setTimeout(function(){window.print();},50);}
  }
- function wire(){Array.prototype.forEach.call(out.querySelectorAll(".exp button"),function(b){b.onclick=function(){exportAs(b.getAttribute("data-x"));};});var m=document.getElementById("fitMore");if(m){m.onclick=function(){var y=document.getElementById("fitYou");y.classList.toggle("open");m.textContent=y.classList.contains("open")?UI.less:UI.more;};}}
- function go(txt){fitText=txt||"";inp.value=fitText;if(location.hash==="#fit"){render();window.scrollTo({top:out.getBoundingClientRect().top+scrollY-90,behavior:"smooth"});}else{location.hash="#fit";}}
+ function wire(){var ma=out.querySelector(".askm a.btn");if(ma)ma.onclick=function(){gcEvent("fit-mail");};Array.prototype.forEach.call(out.querySelectorAll(".exp button"),function(b){b.onclick=function(){exportAs(b.getAttribute("data-x"));};});var m=document.getElementById("fitMore");if(m){m.onclick=function(){var y=document.getElementById("fitYou");y.classList.toggle("open");m.textContent=y.classList.contains("open")?UI.less:UI.more;};}}
+ function go(txt){fitText=txt||"";if(fitText.trim().length>2)gcEvent("fit-run-"+detect(fitText));inp.value=fitText;if(location.hash==="#fit"){render();window.scrollTo({top:out.getBoundingClientRect().top+scrollY-90,behavior:"smooth"});}else{location.hash="#fit";}}
  window.fitRender=function(){inp.value=fitText;render();};
  document.getElementById("fitGo").onclick=function(){go(inp.value);};
  inp.addEventListener("keydown",function(e){if((e.ctrlKey||e.metaKey)&&e.key==="Enter")go(inp.value);});
  if(home){document.getElementById("fitHomeGo").onclick=function(){go(home.value);};home.addEventListener("keydown",function(e){if((e.ctrlKey||e.metaKey)&&e.key==="Enter")go(home.value);});}
- Array.prototype.forEach.call(document.querySelectorAll(".ex button[data-ex]"),function(b){b.onclick=function(){go(FIT_EX[b.getAttribute("data-ex")]);};});
+ Array.prototype.forEach.call(document.querySelectorAll(".ex button[data-ex]"),function(b){b.onclick=function(){gcEvent("fit-example-"+b.getAttribute("data-ex"));go(FIT_EX[b.getAttribute("data-ex")]);};});
 })();
 
 /* ================= ROUTER ================= */
@@ -1052,7 +1056,7 @@ function show(name){
   document.title="Ambra Danesin"+(name==="home"?"":" · "+name.charAt(0).toUpperCase()+name.slice(1));
   if(window.reveal)setTimeout(window.reveal,80);
 }
-window.addEventListener("hashchange",route);
+window.addEventListener("hashchange",function(){route();gcHit();});
 document.getElementById("lang").onclick=function(){this.href=this.getAttribute("href").split("#")[0]+location.hash;};
 document.getElementById("burger").onclick=function(){mobile.classList.toggle("open");};
 
