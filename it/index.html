@@ -866,7 +866,7 @@ var ORGS=[
  {n:"While True",when:"ott 2026",how:"Speaker esterna, online",what:"\"Stack, progetti, GitHub: cosa dire davvero a un recruiter IT\", un webinar per sviluppatori junior e mid, 14 ottobre."},
  {n:"Telesveva",when:"nov 2026",how:"Ospite in TV, sull'AI",what:"Emittente regionale, canale 18 in Puglia e Basilicata, sede ad Andria. In onda il 2 novembre alle 8:10: AI, coscienza e come la società percepisce questi sistemi.",link:"https://www.telesveva.it"},
  {n:"Fastweb + Vodafone",when:"ott 2026",how:"Selezionata, FastwebAI Hackathon",what:"Agent Forge h24: 24 ore in presenza al Fastweb NeXXt di Milano, 22-23 ottobre, per costruire prototipi di AI agentica che agiscono invece di limitarsi a rispondere.",link:"https://www.fastweb.it/fastwebai-hackathon/"},
- {n:"Venice AI Expo",when:"nov 2026",how:"Speaker",what:"Sistemi complessi e percezione di empatia: cosa succede a una società quando i sistemi sembrano empatici, e dove stanno i rischi di manipolazione. Data in definizione.",link:"https://veniceaiexpo.ai"},
+ {n:"Venice AI Expo",when:"nov 2027",how:"Speaker",what:"Sistemi complessi e percezione di empatia: cosa succede a una società quando i sistemi sembrano empatici, e dove stanno i rischi di manipolazione.",link:"https://veniceaiexpo.ai"},
  {n:"Talent Garden",when:"nov 2026, inverno 2027",how:"Speaker, poi docente del master",what:"Bootcamp Night \"AI for Tech\", 12 novembre, slot \"The CTO Case\": \"Ti serve davvero l'AI? Parti dal no.\" Da febbraio a maggio 2027 sono docente del master in AI Engineering & Vibe Coding.",link:"https://talentgarden.org"},
  {n:"TEDxBarletta",logo:"ted",when:"ott 2026",how:"Speaker",what:"Tema \"Supernova\", circa 3.500 persone. Sull'incertezza morale sui sistemi AI e su cosa dice di noi come ci comportiamo quando non sappiamo."}
 ];
@@ -945,7 +945,7 @@ var EVENTS=[
  {d:"14 ott 2026",t:"While True, webinar sul recruiting IT",city:"Online",s:"\"Stack, progetti, GitHub: cosa dire davvero a un recruiter IT\". Online, 14:30.",lat:null,talk:1,iso:"2026-10-14"},
  {d:"16-17 ott 2026",t:"TEDxBarletta",city:"Barletta",s:"Teatro Curci, Barletta. Tema \"Supernova\", circa 3.500 persone. In presenza.",lat:41.319,lng:16.283,talk:1,iso:"2026-10-16",end:"2026-10-17"},
  {d:"22-23 ott 2026",t:"FastwebAI Hackathon, Agent Forge h24",s:"Fastweb NeXXt, Milano. 24 ore in presenza, AI agentica. Selezionata.",lat:45.4553,lng:9.2085,iso:"2026-10-22",end:"2026-10-23"},
- {d:"nov 2026",t:"Venice AI Expo",city:"Venezia",s:"Sistemi complessi e percezione di empatia: effetti sulla società, rischi di manipolazione. Talk. Data in definizione.",lat:45.4408,lng:12.3155,talk:1,iso:"2026-11-15",tbc:1},
+ {d:"nov 2027",t:"Venice AI Expo",city:"Venezia",s:"Sistemi complessi e percezione di empatia: effetti sulla società, rischi di manipolazione. Talk.",lat:45.4408,lng:12.3155,talk:1,iso:"2027-11-09"},
  {d:"2 nov 2026",t:"Telesveva, intervista TV sull'AI",city:"Andria",s:"Canale 18, Puglia e Basilicata. In onda alle 8:10. AI, coscienza e come la società percepisce questi sistemi.",lat:41.2266,lng:16.2954,talk:1,iso:"2026-11-02"},
  {d:"12 nov 2026",t:"Talent Garden, Bootcamp Night: AI for Tech",city:"Online",s:"Campus Calabiana, Milano, collegata da remoto. Slot \"The CTO Case\": \"Ti serve davvero l'AI? Parti dal no.\"",lat:null,talk:1,iso:"2026-11-12"},
  {d:"feb-mag 2027",t:"Talent Garden, master in AI Engineering & Vibe Coding",s:"Sono docente del master. Serate online, due giornate in presenza a Milano.",lat:null,iso:"2027-02-01",end:"2027-05-31"},
@@ -1026,7 +1026,7 @@ var NEXT_EV=EVENTS.filter(function(e){return e.base||e.tbc||endOf(e)>=TODAY;});
 var PAST_EV=TALKS.concat(EVENTS.filter(function(e){return !e.base&&!e.tbc&&e.talk&&endOf(e)<TODAY;})).sort(byIso);
 NEXT_EV.forEach(function(e){ev.appendChild(evRow(e));});
 var pt=document.getElementById("pastTalks");PAST_EV.forEach(function(e){pt.appendChild(evRow(e));});
-(function(){var today=new Date().toISOString().slice(0,10);var up=EVENTS.filter(function(e){return e.talk&&!e.tbc&&e.iso>=today;}).length;var all=TALKS.length+EVENTS.filter(function(e){return e.talk&&!e.tbc;}).length;document.getElementById("ntalks").textContent=all;document.getElementById("ntocome").textContent=up;})();
+(function(){var today=new Date().toISOString().slice(0,10);var up=EVENTS.filter(function(e){return e.talk&&!e.tbc&&e.iso>=today&&e.iso<"2027";}).length;var all=TALKS.length+EVENTS.filter(function(e){return e.talk&&!e.tbc&&e.iso<"2027";}).length;document.getElementById("ntalks").textContent=all;document.getElementById("ntocome").textContent=up;if(up===0){var nt=document.getElementById("ntocome"),pp=nt.parentNode;pp.innerHTML=pp.innerHTML.replace(/,\s*<span id="ntocome">0<\/span>[^.]*\./,".");}})();
 var mapInit=false;
 function initMap(){
   if(mapInit||typeof L==="undefined")return;mapInit=true;document.getElementById("map").classList.add("live");
@@ -1042,7 +1042,7 @@ document.getElementById("showMap").onclick=function(){gcEvent("map-open");initMa
 
 /* cities strip */
 (function(){var c=document.getElementById("cities");var today=new Date().toISOString().slice(0,10);
- var all=TALKS.map(function(t){return {city:t.city,org:t.t.split(",")[0],iso:t.iso};}).concat(EVENTS.filter(function(e){return e.talk;}).map(function(e){return {city:e.city,org:e.t.split(",")[0]+(e.tbc?" · data da confermare":""),iso:e.iso};}));
+ var all=TALKS.map(function(t){return {city:t.city,org:t.t.split(",")[0],iso:t.iso};}).concat(EVENTS.filter(function(e){return e.talk&&e.iso<"2027";}).map(function(e){return {city:e.city,org:e.t.split(",")[0]+(e.tbc?" · data da confermare":""),iso:e.iso};}));
  all.forEach(function(x){var a=document.createElement("a");a.href="#contact";if(x.iso>=today)a.className="next";a.innerHTML='<b>'+esc(x.city)+'</b><span>'+esc(x.org)+'</span>';c.appendChild(a);});})();
 
 /* copy email */
@@ -1327,7 +1327,7 @@ function wire(container,list){if(!container)return;var rows=container.querySelec
 wire(document.getElementById("events"),NEXT_EV);
 wire(document.getElementById("pastTalks"),PAST_EV);
 var cs=document.getElementById("cities");
-if(cs){var all=TALKS.concat(EVENTS.filter(function(e){return e.talk;}));cs.querySelectorAll("a").forEach(function(a,i){var e=all[i];if(e&&findTI(e.t)){a.href="#contact";a.onclick=function(ev){ev.preventDefault();openTalk(e);};}});}
+if(cs){var all=TALKS.concat(EVENTS.filter(function(e){return e.talk&&e.iso<"2027";}));cs.querySelectorAll("a").forEach(function(a,i){var e=all[i];if(e&&findTI(e.t)){a.href="#contact";a.onclick=function(ev){ev.preventDefault();openTalk(e);};}});}
 
 /* ---------- deep links: #need-ai, #demo ---------- */
 function deep(){var h=location.hash.replace("#","");var id={"need-ai":"needAi","demo":"recon"}[h];if(id)setTimeout(function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth",block:"start"});},180);}
