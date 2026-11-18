@@ -415,11 +415,19 @@ table.rc td small{display:block;color:var(--ink-3);text-decoration:line-through;
 .rc-why{margin-top:14px;min-height:48px;padding:14px 16px;border-radius:var(--r);background:var(--bg-2);font-size:14.5px;color:var(--ink-2)}
 .rc-why b{color:var(--ink)}
 .rc-count{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);margin-left:auto}
-.fz{display:block;margin-top:18px;max-width:60ch;border-left:3px solid var(--blue);padding:4px 0 4px 14px;color:var(--ink);text-decoration:none}
-.fz:hover{text-decoration:none}.fz:hover b{color:var(--blue)}
-.fz .d{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
-.fz b{font-weight:650}
-.fz span.t{color:var(--ink-3);font-family:var(--mono);font-size:12px;margin-left:8px}
+.fz{display:block;margin-top:10px;line-height:1.6;max-width:60ch;font-family:var(--mono);font-size:12.5px;color:var(--ink-3);text-decoration:none}
+.fz::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--blue);margin-right:8px;vertical-align:2px}
+.fz:hover{text-decoration:none}.fz:hover b{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.fz .d{font:inherit;letter-spacing:0;text-transform:none;color:inherit}
+.fz b{font-weight:500;color:var(--ink);margin:0 6px}
+.fz span.t{font:inherit;color:inherit;margin:0}
+.tabs{display:inline-flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:calc(var(--r) + 4px);background:var(--bg-2);margin-top:18px;flex-wrap:wrap;justify-content:center}
+.tabs button{border:0;background:transparent;color:var(--ink-2);font-weight:600;font-size:14.5px;padding:9px 16px;border-radius:var(--r);cursor:pointer}
+.tabs button:hover{color:var(--ink)}
+.tabs button.on{background:var(--bg);color:var(--blue);box-shadow:0 1px 3px rgba(11,18,32,.12)}
+.tabp{display:none}.tabp.on{display:block}
+.tabp .grid{margin-top:26px}
+.toolh{font-size:21px;font-weight:700;letter-spacing:-.015em;margin:26px 0 8px}
 .ev.has{cursor:pointer}.ev.has:hover b{color:var(--blue)}
 .ev.has b::after{content:" ->";font-family:var(--mono);font-size:12px;color:var(--blue)}
 .mod .vid{display:flex;align-items:center;gap:10px;margin:6px 0 12px;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r);font-weight:600}
@@ -650,33 +658,26 @@ table.rc td small{display:block;color:var(--ink-3);text-decoration:line-through;
 <div class="page" data-page="programs">
   <div class="head center"><div class="wrap"><div class="eyebrow">Work with me</div><h1>Teach it, build it, or both.</h1><p class="lead">Four ways I work with companies, schools and programs. Most engagements mix them: a course where people build something that runs, a build where the team learns how to change it.</p><p class="hcta" id="wwmCta"></p></div></div>
   <section style="padding-bottom:10px"><div class="wrap"><div class="grid two" id="cards"></div>
-    <div class="box withav"><img class="av" src="img/b07a1da69716.jpg" alt=""><span class="k">Usually mixed</span><div><b>The course ends with something running; the build ends with a team that can change it.</b> Teaching and hands-on work are the same job seen from two sides.</div></div>
   </div></section>
-  <section class="sec" id="needAi"><div class="wrap" id="needAiW"></div></section>
-  <section class="sec" id="recon"><div class="wrap" id="reconW"></div></section>
-  <section class="sec"><div class="wrap">
-    <div class="center"><div class="eyebrow">Hands-on work</div><h2 style="font-size:clamp(24px,3vw,34px)">How I build with a team.</h2></div>
-    <div class="grid">
+  <section class="sec" id="prova"><div class="wrap">
+    <div class="center"><div class="eyebrow">Try it</div><h2 style="font-size:clamp(24px,3vw,34px)">Two things to try, two minutes each.</h2>
+    <div class="tabs" role="tablist" data-tabs="tools"><button type="button" role="tab" data-tab="needAi" class="on">Do you really need AI?</button><button type="button" role="tab" data-tab="recon">Ten dirty records</button></div></div>
+    <div class="tabp on" id="needAi"><div id="needAiW"></div></div>
+    <div class="tabp" id="recon"><div id="reconW"></div></div>
+  </div></section>
+  <section class="sec" id="howwork"><div class="wrap">
+    <div class="center"><div class="eyebrow">How I work</div><h2 style="font-size:clamp(24px,3vw,34px)">Same rules whether I build or teach.</h2>
+    <div class="tabs" role="tablist" data-tabs="how"><button type="button" role="tab" data-tab="hwBuild" class="on">When I build</button><button type="button" role="tab" data-tab="hwTeach">When I teach</button></div></div>
+    <div class="tabp on" id="hwBuild"><div class="grid">
       <article class="card"><div class="d">meaning before code</div><h3>We agree on what it should do before I write it.</h3><p class="a">Rules, edge cases, what counts as done, written down with you. Zero retro-fixes on the features handled this way.</p></article>
-      <article class="card"><div class="d">one change at a time</div><h3>A half-page plan before every change.</h3><p class="a">What changes, how it is tested, what blocks it. One feature per change, so anything can be rolled back.</p></article>
       <article class="card"><div class="d">production rules</div><h3>Rules that hold when nobody is watching.</h3><p class="a">Fresh backup and an explicit OK before any write, no migrations on Friday evenings, every intervention logged with its rollback.</p></article>
-      <article class="card"><div class="d">never invent a value</div><h3>Deterministic where it matters, the model where it helps.</h3><p class="a">When the evidence does not settle a value, the answer is "uncertain", written down. The model never decides what it should not.</p></article>
-      <article class="card"><div class="d">the silent failures</div><h3>Count the failures nobody reports.</h3><p class="a">The errors users complain about are the easy ones. The ones that hurt are silent, so they get measured too.</p></article>
       <article class="card"><div class="d">handover</div><h3>Built to be handed over.</h3><p class="a">Code in your repository, written notes on how it works and how to change it, and a session with the team when it helps. Teaching is half my job, so this part is not an afterthought.</p></article>
-    </div>
-  </div></section>
-  <section class="sec"><div class="wrap">
-    <div class="center"><div class="eyebrow">Courses, cohorts and programs</div><h2 style="font-size:clamp(24px,3vw,34px)">How I run a cohort.</h2></div>
-    <div class="grid">
+    </div></div>
+    <div class="tabp" id="hwTeach"><div class="grid">
       <article class="card"><div class="d">exercises as the unit</div><h3>Cohorts run on weekly exercises, not on lectures.</h3><p class="a">A written exercise per session and a debrief the week after. The exercise is the raw material, the way a shared Discussion Doc works.</p></article>
-      <article class="card"><div class="d">reusable session artifacts</div><h3>Sessions built as documents anyone can run.</h3><p class="a">Timed activities, instructions that read aloud, nothing that depends on me being the one who clicks.</p></article>
       <article class="card"><div class="d">post-mortem, every time</div><h3>A post-mortem after every cohort, a versioned knowledge base.</h3><p class="a">Lessons become rules with a date. Version 1.0 in April 2026, three revisions by May.</p></article>
-      <article class="card"><div class="d">framing, cruxes, objections</div><h3>Problem framing is something I teach, not only something I do.</h3><p class="a">What is the actual question, what would falsify it, which objection is strongest. Weekly exercises are the same muscle.</p></article>
       <article class="card" style="border-color:var(--blue)"><div class="d">a sample session</div><h3>"Framing before choosing", a sample session.</h3><p class="a">Two hours, six timed activities, a worked example rebuilt live. Built for an AI safety fellowship; the format works for any cohort.</p><p class="a" style="margin-top:8px"><button class="btn primary" data-open="session" style="padding:9px 14px;font-size:14px">Open the session <span class="arr">-&gt;</span></button> <button class="btn" data-open="guide" style="padding:9px 14px;font-size:14px">Facilitator guide</button></p></article>
-    </div>
-    <div class="box"><span class="k">Reporting</span><div><b>A weekly written report to two CEOs and a private-equity fund</b>, one screen, for the group I serve as external CTO. Same discipline for a program's funders: what happened, what it cost, what is open.</div></div>
-    <div class="box"><span class="k">Tooling</span><div><b>Asana, Jira and Confluence, Linear, Sentry, in daily use across client work.</b> Asana for a consulting group's projects, Linear as the system of record for the Freedom study, Jira and Confluence on the group I serve as CTO, Sentry on production systems, Obsidian for the versioned knowledge bases.</div></div>
-    <div class="box"><span class="k">Fundraising</span><div><b>Wrote and submitted a 12-month research grant proposal</b> (2026): budget, milestones, an independent technical advisor named.</div></div>
+    </div></div>
     <div class="box"><span class="k">Evidence</span><div><b>Everything referenced on this page, in one place.</b> <a href="https://osf.io/hjfxr" target="_blank" rel="noopener">Pre-registration (OSF)</a> · <a href="https://osf.io/r6z3c" target="_blank" rel="noopener">Second pre-registration</a> · <a href="https://apartresearch.com/project/a-welfare-logger-wrote-its-subjects-false-memory-and-the-subject-believed-it-kkqb" target="_blank" rel="noopener">Apart paper</a> · <a href="https://forum.effectivealtruism.org/posts/FbtGKieKJAJKZze22/my-system-denied-having-memories-even-though-they-were" target="_blank" rel="noopener">EA Forum post</a> · <a href="https://github.com/ambradan/freedom-v2" target="_blank" rel="noopener">Freedom v2 code</a> · <a href="https://github.com/ambradan/freedom-replay" target="_blank" rel="noopener">Replay harness</a> · <a href="https://freedom-interface.vercel.app" target="_blank" rel="noopener">The system's own site</a> · <a href="https://capir-ai.com" target="_blank" rel="noopener">Capire l'IA</a> · <a href="#" data-open="session">Sample session</a> · <a href="#" data-open="guide">Facilitator guide</a></div></div>
     <div style="height:80px"></div>
   </div></section>
@@ -1161,7 +1162,7 @@ var QS=[
 var na=document.getElementById("needAiW");
 if(na){
  var ans={};
- var h='<div class="center"><div class="eyebrow">'+t("Try it · 2 minutes","Prova · 2 minuti")+'</div><h2 style="font-size:clamp(24px,3vw,34px)">'+t("Do you really need AI? Start from no.","Ti serve davvero l'AI? Parti dal no.")+'</h2><p class="lead">'+t("The five questions I ask before saying yes to an AI project. Answer for your own case.","Le cinque domande che faccio prima di dire sì a un progetto di AI. Rispondi pensando al tuo caso.")+'</p></div><div class="tool" id="naTool">';
+ var h='<div class="center"><h3 class="toolh">'+t("Do you really need AI? Start from no.","Ti serve davvero l'AI? Parti dal no.")+'</h3><p class="lead">'+t("The five questions I ask before saying yes to an AI project. Answer for your own case.","Le cinque domande che faccio prima di dire sì a un progetto di AI. Rispondi pensando al tuo caso.")+'</p></div><div class="tool" id="naTool">';
  QS.forEach(function(q,i){h+='<div class="q" data-q="'+q.id+'"><h4><i>0'+(i+1)+'</i>'+esc(q.q)+'</h4><p>'+esc(q.h)+'</p><div class="opts">'+q.o.map(function(o){return '<button type="button" data-v="'+o[0]+'">'+esc(o[1])+'</button>';}).join("")+'</div></div>';});
  h+='<div class="res" id="naRes" aria-live="polite"></div><p class="muted">'+t("Nothing you click leaves this page.","Niente di quello che clicchi esce da questa pagina.")+'</p></div>';
  na.innerHTML=h;
@@ -1241,7 +1242,7 @@ if(rcEl){
    document.querySelectorAll("#rcTable td").forEach(function(td){var c=rows[+td.dataset.r][+td.dataset.c];if(c.s==="ok")return;td.onclick=function(){document.querySelectorAll("#rcTable td.sel").forEach(function(x){x.classList.remove("sel");});td.classList.add("sel");var lab={fix:t("Corrected","Corretta"),flag:t("Flagged","Segnalata"),unc:t("Uncertain","Incerta")}[c.s];document.getElementById("rcWhy").innerHTML='<b>'+lab+'.</b> '+esc(c.why);};});
   }else document.getElementById("rcCount").textContent="";
  }
- rcEl.innerHTML='<div class="center"><div class="eyebrow">'+t("Try it · invented data","Prova · dati inventati")+'</div><h2 style="font-size:clamp(24px,3vw,34px)">'+t("Ten dirty records. The rules never invent a value.","Dieci righe sporche. Le regole non inventano mai un valore.")+'</h2><p class="lead">'+t("A customer table as it comes out of an old ERP. Run the rules: every cell ends up corrected, flagged for a person, or marked uncertain. Click a coloured cell to read why.","Una tabella clienti come esce da un vecchio gestionale. Lancia le regole: ogni cella finisce corretta, segnalata a una persona o marcata come incerta. Clicca una cella colorata per leggere il perché.")+'</p></div>'+
+ rcEl.innerHTML='<div class="center"><h3 class="toolh">'+t("Ten dirty records. The rules never invent a value.","Dieci righe sporche. Le regole non inventano mai un valore.")+'</h3><p class="lead">'+t("A customer table as it comes out of an old ERP. Run the rules: every cell ends up corrected, flagged for a person, or marked uncertain. Click a coloured cell to read why.","Una tabella clienti come esce da un vecchio gestionale. Lancia le regole: ogni cella finisce corretta, segnalata a una persona o marcata come incerta. Clicca una cella colorata per leggere il perché.")+'</p></div>'+
   '<div class="tool"><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><button class="btn primary" type="button" id="rcRun">'+t("Run the rules","Lancia le regole")+' <span class="arr">-&gt;</span></button><button class="btn" type="button" id="rcReset">'+t("Back to the raw data","Torna ai dati grezzi")+'</button><span class="rc-count" id="rcCount"></span></div>'+
   '<div class="rc-wrap" id="rcTable"></div><div class="rc-legend"><span><i class="k1"></i>'+t("corrected, with the reason","corretta, con il motivo")+'</span><span><i class="k2"></i>'+t("flagged: a person decides","segnalata: decide una persona")+'</span><span><i class="k3"></i>'+t("uncertain: not enough evidence","incerta: non ci sono prove sufficienti")+'</span></div>'+
   '<div class="rc-why" id="rcWhy">'+t("The original value stays visible under every change, struck through.","Sotto ogni modifica resta visibile il valore originale, barrato.")+'</div>'+
@@ -1292,7 +1293,7 @@ if(fz&&window.fetch){
   list.sort(function(a,b){return a.date<b.date?1:-1;});var p=list[0];
   var title=String(p.title||"").replace(/\s*[|\-–—]\s*Freedom( v2)?\s*$/i,"").trim();
   fz.href="https://freedom-interface.vercel.app/"+encodeURIComponent(p.filename);
-  fz.innerHTML='<span class="d">'+t("Latest page written by Freedom v2, unedited","Ultima pagina scritta da Freedom v2, senza modifiche")+'</span><b>'+esc(title)+'</b><span class="t">'+esc(p.date)+'</span>';
+  fz.innerHTML='<span class="d">'+t("Latest page by Freedom v2:","Ultima pagina di Freedom v2:")+'</span><b>'+esc(title)+'</b><span class="t">'+esc(p.date)+'</span>';
   fz.style.display="block";
  }).catch(function(){});
 }
@@ -1330,7 +1331,9 @@ var cs=document.getElementById("cities");
 if(cs){var all=TALKS.concat(EVENTS.filter(function(e){return e.talk&&e.iso<"2027";}));cs.querySelectorAll("a").forEach(function(a,i){var e=all[i];if(e&&findTI(e.t)){a.href="#contact";a.onclick=function(ev){ev.preventDefault();openTalk(e);};}});}
 
 /* ---------- deep links: #need-ai, #demo ---------- */
-function deep(){var h=location.hash.replace("#","");var id={"need-ai":"needAi","demo":"recon"}[h];if(id)setTimeout(function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth",block:"start"});},180);}
+function tab(group,id){var g=document.querySelector('[data-tabs="'+group+'"]');if(!g)return;g.querySelectorAll("button").forEach(function(b){var on=b.dataset.tab===id;b.classList.toggle("on",on);b.setAttribute("aria-selected",on);var pnl=document.getElementById(b.dataset.tab);if(pnl)pnl.classList.toggle("on",on);});}
+document.querySelectorAll("[data-tabs]").forEach(function(g){g.querySelectorAll("button").forEach(function(b){b.onclick=function(){tab(g.dataset.tabs,b.dataset.tab);gcEvent("tab-"+b.dataset.tab);};});});
+function deep(){var h=location.hash.replace("#","");var id={"need-ai":"needAi","demo":"recon"}[h];if(id){tab("tools",id);setTimeout(function(){var el=document.getElementById("prova");if(el)el.scrollIntoView({behavior:"smooth",block:"start"});},180);}}
 window.addEventListener("hashchange",deep);deep();
 })();
 
