@@ -376,6 +376,75 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 .ov .doc th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);border-top:0}
 .ov .doc code{font-family:var(--mono);font-size:13px;background:var(--bg-2);padding:1px 5px;border-radius:4px}
 .ov .foot{padding:10px 16px;border-top:1px solid var(--line);background:var(--bg-2);text-align:center}
+
+/* ===== features: tools, CV, Freedom latest, talk pages, booking ===== */
+.hcta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+.tool{border:1px solid var(--line);border-radius:var(--r);background:var(--bg);padding:28px;margin-top:26px}
+@media (max-width:620px){.tool{padding:20px 16px}}
+.tool .q{border-top:1px solid var(--line);padding:16px 0}
+.tool .q:first-of-type{border-top:0}
+.tool .q h4{margin:0 0 4px;font-size:17px;font-weight:700;letter-spacing:-.01em}
+.tool .q h4 i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--blue);margin-right:8px}
+.tool .q p{margin:0 0 10px;color:var(--ink-2);font-size:14.5px}
+.tool .opts{display:flex;gap:8px;flex-wrap:wrap}
+.tool .opts button{border:1px solid var(--line-2);background:var(--bg);color:var(--ink);border-radius:var(--r);padding:8px 14px;font-weight:600;font-size:14px;cursor:pointer}
+.tool .opts button:hover{border-color:var(--blue)}
+.tool .opts button.sel{background:var(--blue);border-color:var(--blue);color:#fff}
+.tool .res{margin-top:18px;border-radius:var(--r);padding:22px 24px;border:1px solid var(--blue);border-left-width:4px;background:var(--blue-soft);color:var(--blue-ink);display:none}
+.tool .res.on{display:block}
+.tool .res h3{margin:0 0 8px;font-size:22px;letter-spacing:-.02em}
+.tool .res p{margin:0 0 10px}
+.tool .res ul{margin:0 0 12px;padding-left:20px}
+.tool .res .row2{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.tool .muted{color:var(--ink-3);font-size:13px;margin-top:12px}
+.rc-wrap{overflow-x:auto;margin-top:16px;border:1px solid var(--line);border-radius:var(--r)}
+table.rc{border-collapse:collapse;width:100%;font-size:13.5px;min-width:760px}
+table.rc th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);text-align:left;padding:10px;border-bottom:1px solid var(--line);background:var(--bg-2)}
+table.rc td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;font-family:var(--mono);font-size:12.5px;color:var(--ink)}
+table.rc td.s-ok{color:var(--ink-2)}
+table.rc td.s-fix{background:color-mix(in srgb,#2B5BFF 14%,transparent);cursor:pointer}
+table.rc td.s-flag{background:color-mix(in srgb,#E5484D 18%,transparent);cursor:pointer}
+table.rc td.s-unc{background:repeating-linear-gradient(135deg,color-mix(in srgb,#F5A524 22%,transparent) 0 6px,transparent 6px 12px);cursor:pointer}
+table.rc td.sel{outline:2px solid var(--blue);outline-offset:-2px}
+table.rc td small{display:block;color:var(--ink-3);text-decoration:line-through;font-size:11px}
+.rc-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin-top:14px;align-items:center}
+.rc-legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+.rc-legend .k1{background:color-mix(in srgb,#2B5BFF 30%,transparent)}
+.rc-legend .k2{background:color-mix(in srgb,#E5484D 35%,transparent)}
+.rc-legend .k3{background:repeating-linear-gradient(135deg,color-mix(in srgb,#F5A524 45%,transparent) 0 4px,transparent 4px 8px);border:1px solid color-mix(in srgb,#F5A524 60%,transparent)}
+.rc-why{margin-top:14px;min-height:48px;padding:14px 16px;border-radius:var(--r);background:var(--bg-2);font-size:14.5px;color:var(--ink-2)}
+.rc-why b{color:var(--ink)}
+.rc-count{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);margin-left:auto}
+.fz{display:block;margin-top:18px;max-width:60ch;border-left:3px solid var(--blue);padding:4px 0 4px 14px;color:var(--ink);text-decoration:none}
+.fz:hover{text-decoration:none}.fz:hover b{color:var(--blue)}
+.fz .d{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.fz b{font-weight:650}
+.fz span.t{color:var(--ink-3);font-family:var(--mono);font-size:12px;margin-left:8px}
+.ev.has{cursor:pointer}.ev.has:hover b{color:var(--blue)}
+.ev.has b::after{content:" ->";font-family:var(--mono);font-size:12px;color:var(--blue)}
+.mod .vid{display:flex;align-items:center;gap:10px;margin:6px 0 12px;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r);font-weight:600}
+.mod .vid::before{content:"";border-left:12px solid var(--blue);border-top:7px solid transparent;border-bottom:7px solid transparent}
+#cvDoc{display:none}
+@media print{
+ body.printcv>*:not(#cvDoc){display:none!important}
+ body.printcv #cvDoc{display:block}
+ body.printcv{background:#fff;color:#000}
+ #cvDoc{font:10.5pt/1.42 var(--sans);color:#000}
+ #cvDoc h1{font-size:24pt;margin:0 0 2pt;letter-spacing:-.02em;line-height:1.05;max-width:none}
+ #cvDoc .sub{font-size:11.5pt;margin:0 0 4pt}
+ #cvDoc .ct{font-size:9.5pt;color:#333;margin-bottom:10pt}
+ #cvDoc .ct a{color:#000}
+ #cvDoc h2{font-size:11pt;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid #000;padding-bottom:2pt;margin:12pt 0 6pt}
+ #cvDoc .it{break-inside:avoid;margin-bottom:6pt}
+ #cvDoc .it .hd{display:flex;justify-content:space-between;gap:12pt}
+ #cvDoc .it .hd b{font-weight:700}
+ #cvDoc .it .hd span{font-family:var(--mono);font-size:8.5pt;color:#444;white-space:nowrap}
+ #cvDoc ul{margin:2pt 0 0;padding-left:14pt}
+ #cvDoc li{margin:0 0 1pt}
+ #cvDoc p{margin:0 0 4pt}
+ #cvDoc .ft{margin-top:12pt;font-size:8pt;color:#555}
+ @page{margin:14mm 14mm 14mm 14mm}
+}
 </style>
 </head>
 <body>
@@ -412,6 +481,7 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <a class="btn" href="#research">Vedi la ricerca</a>
         </div>
         <div class="meta"><span>Giorno <b id="rdays">0</b> di Freedom v2</span><span>Better Futures fellow, ENAIS</span><span>Mentorship Sentient Futures</span><span>Cambridge Digital Minds</span><span>MATS inverno 2027, Stage 2</span><span id="rnext">Prossimo palco: TEDxBarletta</span></div>
+        <a class="fz" id="fzLatest" style="display:none" target="_blank" rel="noopener"></a>
       </div>
       <div class="stack">
         <div class="frame f1"><div class="chrome"><i></i><i></i><i></i><span>apartresearch.com</span></div><img src="../img/fa95d0854763.jpg" alt="Il paper su Apart Research"></div>
@@ -578,10 +648,12 @@ footer .fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 
 <!-- ================= WORK WITH ME (route: programs) ================= -->
 <div class="page" data-page="programs">
-  <div class="head center"><div class="wrap"><div class="eyebrow">Lavoriamo insieme</div><h1>Lo insegno, lo costruisco, o tutte e due.</h1><p class="lead">Quattro modi in cui lavoro con aziende, scuole e programmi. Quasi sempre si mescolano: un corso in cui le persone costruiscono qualcosa che funziona, un lavoro in cui il gruppo impara a modificarlo.</p></div></div>
+  <div class="head center"><div class="wrap"><div class="eyebrow">Lavoriamo insieme</div><h1>Lo insegno, lo costruisco, o tutte e due.</h1><p class="lead">Quattro modi in cui lavoro con aziende, scuole e programmi. Quasi sempre si mescolano: un corso in cui le persone costruiscono qualcosa che funziona, un lavoro in cui il gruppo impara a modificarlo.</p><p class="hcta" id="wwmCta"></p></div></div>
   <section style="padding-bottom:10px"><div class="wrap"><div class="grid two" id="cards"></div>
     <div class="box withav"><img class="av" src="../img/b07a1da69716.jpg" alt=""><span class="k">Di solito, misto</span><div><b>Il corso finisce con qualcosa che gira; il lavoro finisce con un gruppo che lo sa modificare.</b> Formazione e lavoro pratico sono lo stesso mestiere visto da due lati.</div></div>
   </div></section>
+  <section class="sec" id="needAi"><div class="wrap" id="needAiW"></div></section>
+  <section class="sec" id="recon"><div class="wrap" id="reconW"></div></section>
   <section class="sec"><div class="wrap">
     <div class="center"><div class="eyebrow">Lavoro pratico</div><h2 style="font-size:clamp(24px,3vw,34px)">Come costruisco insieme a un gruppo.</h2></div>
     <div class="grid">
@@ -795,7 +867,7 @@ var ORGS=[
  {n:"Telesveva",when:"nov 2026",how:"Ospite in TV, sull'AI",what:"Emittente regionale, canale 18 in Puglia e Basilicata, sede ad Andria. In onda il 2 novembre alle 8:10: AI, coscienza e come la società percepisce questi sistemi.",link:"https://www.telesveva.it"},
  {n:"Fastweb + Vodafone",when:"ott 2026",how:"Selezionata, FastwebAI Hackathon",what:"Agent Forge h24: 24 ore in presenza al Fastweb NeXXt di Milano, 22-23 ottobre, per costruire prototipi di AI agentica che agiscono invece di limitarsi a rispondere.",link:"https://www.fastweb.it/fastwebai-hackathon/"},
  {n:"Venice AI Expo",when:"nov 2026",how:"Speaker",what:"Sistemi complessi e percezione di empatia: cosa succede a una società quando i sistemi sembrano empatici, e dove stanno i rischi di manipolazione. Data in definizione.",link:"https://veniceaiexpo.ai"},
- {n:"Talent Garden",when:"nov 2026, inverno 2027",how:"Speaker, poi docente",what:"Bootcamp Night \"AI for Tech\", 12 novembre, slot \"The CTO Case\": \"Ti serve davvero l'AI? Parti dal no.\" Docente del master in AI Engineering & Vibe Coding, da febbraio a maggio 2027.",link:"https://talentgarden.org"},
+ {n:"Talent Garden",when:"nov 2026, inverno 2027",how:"Speaker, poi docente del master",what:"Bootcamp Night \"AI for Tech\", 12 novembre, slot \"The CTO Case\": \"Ti serve davvero l'AI? Parti dal no.\" Da febbraio a maggio 2027 sono docente del master in AI Engineering & Vibe Coding.",link:"https://talentgarden.org"},
  {n:"TEDxBarletta",logo:"ted",when:"ott 2026",how:"Speaker",what:"Tema \"Supernova\", circa 3.500 persone. Sull'incertezza morale sui sistemi AI e su cosa dice di noi come ci comportiamo quando non sappiamo."}
 ];
 
@@ -819,7 +891,7 @@ var TEACH=[
  {org:"Farlastrada",title:"AI per media, contenuti, social e video",when:"2026",tags:["editoria","pipeline editoriale","trascrizione"],people:"redazione",target:"un editore B2B multi-testata",hours:"3h + mentoring",
   body:"Strutture di prompt, una pipeline cross-canale da articolo a newsletter a carosello sul loro materiale, trascrizione e automazione. Assessment d'ingresso prima, mentoring dopo."},
 ];
-var ALSO=[["Talent Garden","docente, master in AI Engineering & Vibe Coding, feb-mag 2027"],["CDO Bergamo","AI applicata alla finanza d'impresa, su dati bancari anonimizzati"],["Puglia Creativa / CETMA","AI e management per le imprese culturali"],["Finlogic","\"Da zero all'AI\", Accademia 2026"],["DigIT Export Day","talk e laboratorio AI per l'export, Promos Italia"],["ELTI","formazione AI interna per un team aziendale, Roma"]];
+var ALSO=[["Talent Garden","docente del master in AI Engineering & Vibe Coding, feb-mag 2027"],["CDO Bergamo","AI applicata alla finanza d'impresa, su dati bancari anonimizzati"],["Puglia Creativa / CETMA","AI e management per le imprese culturali"],["Finlogic","\"Da zero all'AI\", Accademia 2026"],["DigIT Export Day","talk e laboratorio AI per l'export, Promos Italia"],["ELTI","formazione AI interna per un team aziendale, Roma"]];
 
 var WORK=[
  {org:"Nexticc",title:"CTO esterna di un gruppo",when:"dal 2026",tags:["strategia IT","data governance","gestione fornitori","sviluppo automazioni","reporting al fondo"],
@@ -859,7 +931,7 @@ var PROGS=[
 
 var CARDS=[
  {n:"01",q:"Formazione che finisce con qualcosa che funziona.",a:"Corsi e coorti da 6 a 100 persone, costruiti attorno a un esercizio vero. Laboratori da cui si esce con uno strumento che si continua a usare.",
-  items:[["feb-mag 2027","<b>Talent Garden, master in AI Engineering &amp; Vibe Coding.</b> Docente."],["set-nov 2026","<b>Intesa Sanpaolo, architetti IT.</b> Cinque sessioni, due edizioni, chiusura con una sfida di progettazione."],["apr-lug 2026","<b>CVR, L'Officina delle Competenze.</b> Un programma, due pubblici, circa 100 rivenditori online, ogni caso d'uso una situazione vera al banco."],["mar 2026","<b>Engitel AI Academy.</b> AI engineering e ML predittivo sullo stack .NET / Azure degli sviluppatori stessi."],["apr 2026","<b>Laboratorio al DigIT Export Day.</b> Una dashboard radar e modelli in sei lingue, costruiti con la sala."],["apr 2026","<b>Italiacamp.</b> 37 persone, una cassetta di 48 tecniche che si sono tenute dopo il corso."],["2026","<b>E poi:</b> Promos Rimini, Scatolificio Medicinese, BPER Banca, CDO Bergamo, Farlastrada, Puglia Creativa, Finlogic."]]},
+  items:[["feb-mag 2027","<b>Talent Garden, master in AI Engineering &amp; Vibe Coding.</b> Sono docente del master, da febbraio a maggio 2027."],["set-nov 2026","<b>Intesa Sanpaolo, architetti IT.</b> Cinque sessioni, due edizioni, chiusura con una sfida di progettazione."],["apr-lug 2026","<b>CVR, L'Officina delle Competenze.</b> Un programma, due pubblici, circa 100 rivenditori online, ogni caso d'uso una situazione vera al banco."],["mar 2026","<b>Engitel AI Academy.</b> AI engineering e ML predittivo sullo stack .NET / Azure degli sviluppatori stessi."],["apr 2026","<b>Laboratorio al DigIT Export Day.</b> Una dashboard radar e modelli in sei lingue, costruiti con la sala."],["apr 2026","<b>Italiacamp.</b> 37 persone, una cassetta di 48 tecniche che si sono tenute dopo il corso."],["2026","<b>E poi:</b> Promos Rimini, Scatolificio Medicinese, BPER Banca, CDO Bergamo, Farlastrada, Puglia Creativa, Finlogic."]]},
  {n:"02",q:"Sviluppo: backend e sistemi AI.",a:"Il codice lo scrivo io: backend, instradamento tra modelli AI, motori di dati, piattaforme interne. In produzione, non in una presentazione.",
   items:[["da lug 2026","<b>Blue Star Next.</b> Nuove sezioni della piattaforma interna di un gruppo di consulenza, Rails più TypeScript, una funzione per ogni modifica."],["2025 e 2026","<b>Instradamento tra più fornitori AI</b> con riserva automatica e chiamate a strumenti, su un prodotto B2B di food cost."],["2026","<b>Smistamento automatico delle email</b> per un gruppo: classificazione con LLM, regole fisse, Microsoft Graph."],["dal 2025","<b>Motore di riconciliazione</b> per dati di gestionali vecchi: tre soli esiti, tracciamento cella per cella, validato su due dataset reali di clienti."],["dal 2025","<b>NoteScraper.</b> Esportazioni grezze del gestionale trasformate in basi di conoscenza navigabili, 469.000 verbali di verifica."],["ott 2026","<b>FastwebAI Hackathon.</b> 24 ore in presenza per costruire un prototipo di AI agentica."],["dal 2025","<b>Codice pubblico:</b> booking-api, techscout, freedom-v2, freedom-replay su GitHub."]]},
  {n:"03",q:"CTO esterna, valutazione, un secondo parere.",a:"Quando c'è già un prodotto o l'IT di un gruppo, e serve qualcuno che tenga tutto il quadro e decida cosa viene prima.",
@@ -871,18 +943,19 @@ var CARDS=[
 var EVENTS=[
  {d:"8 ott 2026",t:"Nebulab, Commerce Symposium: Merchant and the Machine",city:"Milano",s:"Spazio Pio XI, Milano, 17:30. Talk. In presenza.",lat:45.4636,lng:9.1782,talk:1,iso:"2026-10-08"},
  {d:"14 ott 2026",t:"While True, webinar sul recruiting IT",city:"Online",s:"\"Stack, progetti, GitHub: cosa dire davvero a un recruiter IT\". Online, 14:30.",lat:null,talk:1,iso:"2026-10-14"},
- {d:"16-17 ott 2026",t:"TEDxBarletta",city:"Barletta",s:"Teatro Curci, Barletta. Tema \"Supernova\", circa 3.500 persone. In presenza.",lat:41.319,lng:16.283,talk:1,iso:"2026-10-16"},
- {d:"22-23 ott 2026",t:"FastwebAI Hackathon, Agent Forge h24",s:"Fastweb NeXXt, Milano. 24 ore in presenza, AI agentica. Selezionata.",lat:45.4553,lng:9.2085},
+ {d:"16-17 ott 2026",t:"TEDxBarletta",city:"Barletta",s:"Teatro Curci, Barletta. Tema \"Supernova\", circa 3.500 persone. In presenza.",lat:41.319,lng:16.283,talk:1,iso:"2026-10-16",end:"2026-10-17"},
+ {d:"22-23 ott 2026",t:"FastwebAI Hackathon, Agent Forge h24",s:"Fastweb NeXXt, Milano. 24 ore in presenza, AI agentica. Selezionata.",lat:45.4553,lng:9.2085,iso:"2026-10-22",end:"2026-10-23"},
  {d:"nov 2026",t:"Venice AI Expo",city:"Venezia",s:"Sistemi complessi e percezione di empatia: effetti sulla società, rischi di manipolazione. Talk. Data in definizione.",lat:45.4408,lng:12.3155,talk:1,iso:"2026-11-15",tbc:1},
  {d:"2 nov 2026",t:"Telesveva, intervista TV sull'AI",city:"Andria",s:"Canale 18, Puglia e Basilicata. In onda alle 8:10. AI, coscienza e come la società percepisce questi sistemi.",lat:41.2266,lng:16.2954,talk:1,iso:"2026-11-02"},
  {d:"12 nov 2026",t:"Talent Garden, Bootcamp Night: AI for Tech",city:"Online",s:"Campus Calabiana, Milano, collegata da remoto. Slot \"The CTO Case\": \"Ti serve davvero l'AI? Parti dal no.\"",lat:null,talk:1,iso:"2026-11-12"},
- {d:"feb-mag 2027",t:"Talent Garden, master in AI Engineering & Vibe Coding",s:"Docente. Serate online, due giornate in presenza a Milano.",lat:null},
- {d:"set-nov 2026",t:"Intesa Sanpaolo, Design & structured thinking",s:"Cinque sessioni, online. Programma chiuso.",lat:null},
- {d:"autunno 2026",t:"Cambridge Digital Minds",s:"Introduction to Digital Minds, coorte online.",lat:null},
+ {d:"feb-mag 2027",t:"Talent Garden, master in AI Engineering & Vibe Coding",s:"Sono docente del master. Serate online, due giornate in presenza a Milano.",lat:null,iso:"2027-02-01",end:"2027-05-31"},
+ {d:"set-nov 2026",t:"Intesa Sanpaolo, Design & structured thinking",s:"Cinque sessioni, online. Programma chiuso.",lat:null,iso:"2026-09-01",end:"2026-11-30"},
+ {d:"autunno 2026",t:"Cambridge Digital Minds",s:"Introduction to Digital Minds, coorte online.",lat:null,iso:"2026-09-15",end:"2026-12-31"},
  {d:"su invito",t:"Venezia",s:"Dove sono di base. Roma, Milano e Bologna con regolarità.",lat:45.4408,lng:12.3155,base:true}
 ];
 var TALKS=[
  {d:"feb 2026",t:"Casa Sanremo Invest",city:"Sanremo",s:"Palafiori, Sanremo. Pubblico di finanza e crypto.",lat:43.8167,lng:7.7761,iso:"2026-02-24"},
+ {d:"gen 2026",t:"Tech Meetup Day, 404 Code Not Found dal vivo",city:"Milano",s:"SmartCityLab, Milano. Puntata dal vivo del podcast con Federico Maccari, c'è il video.",lat:45.4386,lng:9.2104,iso:"2026-01-16"},
  {d:"apr 2026",t:"DigIT Export Day, Promos Italia",city:"Ferrara",s:"Ferrara. Talk più laboratorio AI per l'export.",lat:44.8381,lng:11.6198,iso:"2026-04-14"},
  {d:"mag 2026",t:"Finlogic, Accademia 2026",city:"Bologna",s:"Bologna. Talk e tavola rotonda di chiusura.",lat:44.4695,lng:11.4066,iso:"2026-05-14"},
  {d:"set 2026",t:"Città di Lugano",city:"Lugano",s:"Lugano. \"Quando non sappiamo più di chi fidarci\".",lat:46.0037,lng:8.9511,iso:"2026-09-08"}
@@ -945,8 +1018,14 @@ CARDS.forEach(function(c){
 /* events + map */
 var ev=document.getElementById("events");
 function evRow(e){var d=document.createElement("div");d.className="ev"+(e.talk?" talk":"");d.innerHTML='<div class="d">'+esc(e.d)+'</div><div><b>'+esc(e.t)+(e.tbc?' <i class="wip">in definizione</i>':'')+'</b><span>'+esc(e.s)+'</span></div>';return d;}
-EVENTS.forEach(function(e){ev.appendChild(evRow(e));});
-var pt=document.getElementById("pastTalks");TALKS.forEach(function(e){pt.appendChild(evRow(e));});
+var TODAY=new Date().toISOString().slice(0,10);
+function byIso(a,b){var x=a.base?"9999":(a.iso||"9999"),y=b.base?"9999":(b.iso||"9999");return x<y?-1:x>y?1:0;}
+function endOf(e){return e.base?"9999":(e.end||e.iso||"9999");}
+TALKS.sort(byIso);EVENTS.sort(byIso);
+var NEXT_EV=EVENTS.filter(function(e){return e.base||e.tbc||endOf(e)>=TODAY;});
+var PAST_EV=TALKS.concat(EVENTS.filter(function(e){return !e.base&&!e.tbc&&e.talk&&endOf(e)<TODAY;})).sort(byIso);
+NEXT_EV.forEach(function(e){ev.appendChild(evRow(e));});
+var pt=document.getElementById("pastTalks");PAST_EV.forEach(function(e){pt.appendChild(evRow(e));});
 (function(){var today=new Date().toISOString().slice(0,10);var up=EVENTS.filter(function(e){return e.talk&&!e.tbc&&e.iso>=today;}).length;var all=TALKS.length+EVENTS.filter(function(e){return e.talk&&!e.tbc;}).length;document.getElementById("ntalks").textContent=all;document.getElementById("ntocome").textContent=up;})();
 var mapInit=false;
 function initMap(){
@@ -1050,9 +1129,214 @@ var fitText="";
  Array.prototype.forEach.call(document.querySelectorAll(".ex button[data-ex]"),function(b){b.onclick=function(){gcEvent("fit-example-"+b.getAttribute("data-ex"));go(FIT_EX[b.getAttribute("data-ex")]);};});
 })();
 
+
+/* ================= FEATURES: need-AI check, reconciliation demo, CV, Freedom latest, talk pages, booking ================= */
+(function(){
+var IT=document.documentElement.lang==="it";
+var MAIL="ambradan91@gmail.com";
+var BOOK_URL=""; /* when a booking page exists (Cal.com, Google appointment schedule), put its URL here */
+function t(en,it){return IT?it:en;}
+function bookHref(){return BOOK_URL||("mailto:"+MAIL+"?subject="+encodeURIComponent(t("20 minutes to talk","20 minuti per parlare"))+"&body="+encodeURIComponent(t("Hi Ambra,\n\nI would like 20 minutes to talk about: \n\nTwo or three slots that work for me: \n\n","Ciao Ambra,\n\nvorrei 20 minuti per parlare di: \n\nDue o tre orari che mi vanno bene: \n\n")));}
+function bookBtn(primary){return '<a class="btn'+(primary?' primary':'')+'" href="'+bookHref()+'"'+(BOOK_URL?' target="_blank" rel="noopener"':'')+' data-gc="book">'+t("Book 20 minutes","Prenota 20 minuti")+' <span class="arr">-&gt;</span></a>';}
+function cvBtn(){return '<button class="btn" type="button" data-cv="1" title="'+t("Opens the print dialog: choose Save as PDF","Apre la finestra di stampa: scegli Salva come PDF")+'">'+t("CV as PDF","CV in PDF")+'</button>';}
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-cv]");if(b){e.preventDefault();printCV();}var k=e.target.closest&&e.target.closest("[data-gc]");if(k)gcEvent(k.getAttribute("data-gc"));});
+
+/* ---------- booking + CV buttons ---------- */
+var hc=document.getElementById("wwmCta");if(hc)hc.innerHTML=bookBtn(true)+cvBtn();
+var cm=document.getElementById("copyMail");if(cm){var p=cm.parentNode;p.insertAdjacentHTML("beforeend",bookBtn(false)+cvBtn());}
+
+/* ---------- 1. do you really need AI? ---------- */
+var QS=[
+ {id:"real",q:t("Does the problem really exist?","Il problema esiste davvero?"),h:t("It happens often, it costs time or money, and someone can say how much.","Succede spesso, costa tempo o soldi, e qualcuno sa dire quanto."),o:[["yes",t("Yes, with numbers","Sì, con i numeri")],["dk",t("I think so","Credo di sì")],["no",t("No","No")]],
+  fix:t("Measure the problem first: how often it happens and what it costs today.","Misura prima il problema: quanto spesso succede e quanto costa oggi.")},
+ {id:"data",q:t("Does the data hold up?","I dati reggono?"),h:t("The data the system would need exists, is reachable, and is clean enough to trust.","I dati che servirebbero esistono, si possono raggiungere e sono abbastanza puliti da fidarsi."),o:[["yes",t("Yes","Sì")],["dk",t("I don't know","Non lo so")],["no",t("No","No")]],
+  fix:t("Look at the data before the model: take a hundred real records and count what is missing or wrong.","Guarda i dati prima del modello: prendi cento righe vere e conta cosa manca o è sbagliato.")},
+ {id:"simple",q:t("Can something simpler solve it?","Si risolve con qualcosa di più semplice?"),h:t("A rule, a form, an ordinary automation, a change in how people work.","Una regola, un modulo, un'automazione normale, un cambio nel modo di lavorare."),o:[["no",t("No, I checked","No, ho controllato")],["dk",t("I don't know","Non lo so")],["yes",t("Yes, probably","Sì, probabilmente")]],
+  fix:t("Write down the simplest version that could work, without AI, and why it would not be enough.","Scrivi la versione più semplice che potrebbe funzionare, senza AI, e perché non basterebbe.")},
+ {id:"owner",q:t("Who keeps it running in production?","Chi lo tiene in piedi quando è in produzione?"),h:t("A person with a name, time to do it, and a way to know when it breaks.","Una persona con un nome, il tempo per farlo e un modo per accorgersi quando si rompe."),o:[["yes",t("Someone with a name","Una persona con un nome")],["dk",t("Not decided","Non è deciso")],["no",t("Nobody","Nessuno")]],
+  fix:t("Name the person who will own it, and decide how a failure will be noticed.","Dai un nome a chi se ne occupa, e decidi come ci si accorge di un guasto.")},
+ {id:"rules",q:t("Is it within the rules?","È in regola con le norme?"),h:t("Privacy, the AI Act, the rules of your sector. Known before you start, not after.","Privacy, AI Act, regole del tuo settore. Da sapere prima di partire, non dopo."),o:[["yes",t("Yes, checked","Sì, verificato")],["dk",t("I don't know","Non lo so")],["no",t("No","No")]],
+  fix:t("Check privacy, the AI Act and your sector's rules with whoever is responsible for them, before any data moves.","Verifica privacy, AI Act e regole di settore con chi ne è responsabile, prima che si muova un solo dato.")}
+];
+var na=document.getElementById("needAiW");
+if(na){
+ var ans={};
+ var h='<div class="center"><div class="eyebrow">'+t("Try it · 2 minutes","Prova · 2 minuti")+'</div><h2 style="font-size:clamp(24px,3vw,34px)">'+t("Do you really need AI? Start from no.","Ti serve davvero l'AI? Parti dal no.")+'</h2><p class="lead">'+t("The five questions I ask before saying yes to an AI project. Answer for your own case.","Le cinque domande che faccio prima di dire sì a un progetto di AI. Rispondi pensando al tuo caso.")+'</p></div><div class="tool" id="naTool">';
+ QS.forEach(function(q,i){h+='<div class="q" data-q="'+q.id+'"><h4><i>0'+(i+1)+'</i>'+esc(q.q)+'</h4><p>'+esc(q.h)+'</p><div class="opts">'+q.o.map(function(o){return '<button type="button" data-v="'+o[0]+'">'+esc(o[1])+'</button>';}).join("")+'</div></div>';});
+ h+='<div class="res" id="naRes" aria-live="polite"></div><p class="muted">'+t("Nothing you click leaves this page.","Niente di quello che clicchi esce da questa pagina.")+'</p></div>';
+ na.innerHTML=h;
+ na.querySelectorAll(".q").forEach(function(qd){qd.querySelectorAll("button").forEach(function(b){b.onclick=function(){qd.querySelectorAll("button").forEach(function(x){x.classList.remove("sel");});b.classList.add("sel");ans[qd.dataset.q]=b.dataset.v;verdict();};});});
+ function verdict(){
+  var r=document.getElementById("naRes");
+  if(Object.keys(ans).length<QS.length){r.classList.remove("on");return;}
+  gcEvent("need-ai-result");
+  var bad=function(id){return id==="simple"?ans[id]==="yes":ans[id]==="no";};
+  var title,body,list=[];
+  if(ans.real==="no"){title=t("Start from no. And stay there.","Parti dal no. E restaci.");body=t("Without a real problem, AI is an expense. Come back when you can say what the problem costs today.","Senza un problema vero, l'AI è una spesa. Torna qui quando sai dire quanto ti costa il problema oggi.");}
+  else if(ans.simple==="yes"){title=t("Start from no: the simple solution first.","Parti dal no: prima la soluzione semplice.");body=t("A rule, a form, an automation without AI. If it is not enough, talk about it again with numbers in hand.","Una regola, un modulo, un'automazione senza AI. Se non basta, se ne riparla con i numeri in mano.");}
+  else if(QS.some(function(q){return bad(q.id);})){title=t("Not yet.","Non ancora.");body=t("Fix these first. Then the question becomes worth asking again.","Prima sistema questi punti. Poi la domanda torna a valere la pena.");QS.forEach(function(q){if(bad(q.id))list.push(q.fix);});}
+  else if(QS.some(function(q){return ans[q.id]==="dk";})){title=t("Maybe. Check this first:","Forse. Prima verifica questo:");body="";QS.forEach(function(q){if(ans[q.id]==="dk")list.push(q.fix);});}
+  else{title=t("Yes. Now you can think about it seriously.","Sì. Adesso si ragiona sul serio.");body=t("Passing the five questions earns the right to design it. Next step: a small prototype on real data, with a written criterion that says whether it works.","Superare le cinque domande dà diritto a progettarlo. Il passo dopo è un prototipo piccolo, su dati veri, con un criterio scritto per dire se funziona.");}
+  r.innerHTML='<h3>'+esc(title)+'</h3>'+(body?'<p>'+esc(body)+'</p>':'')+(list.length?'<ul>'+list.map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul>':'')+'<div class="row2">'+bookBtn(true)+'<button class="btn" type="button" id="naShare">'+t("Copy the link to this check","Copia il link a questa prova")+'</button></div>';
+  r.classList.add("on");
+  document.getElementById("naShare").onclick=function(){var u=location.origin+location.pathname+"#need-ai";var b=this;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){b.textContent=t("Copied","Copiato");},function(){b.textContent=u;});};
+ }
+}
+
+/* ---------- 2. reconciliation demo ---------- */
+var rcEl=document.getElementById("reconW");
+if(rcEl){
+ var CAP={"belluno":["32100"],"treviso":["31100"],"rovigo":["45100"],"vicenza":["36100"],"mestre":["30171","30172","30173","30174","30175"],"venezia":["30121","30122","30123","30124","30125","30126","30131","30132","30133","30135","30141","30171","30172","30173","30174","30175"]};
+ var RAW=[
+  ["C001","ROSSI IMPIANTI SRL  ","IT52601810279","32100","Belluno","03/04/2025"],
+  ["C002","Bianchi Termotecnica S.r.l.","59083010278","","Treviso","2025-09-12"],
+  ["C003","Verdi & Figli snc","66131860273","","Mestre","2025-06-30"],
+  ["C004","Gallo Costruzioni Srl","52601810272","45100","Rovigo","31/02/2025"],
+  ["C005","Ferro Serramenti S.r.l.","09139090279","36100","Vicenza","7-11-2025"],
+  ["C006","ferro serramenti srl","9139090279","36100","Vicenza","2025-10-01"],
+  ["C007","Neri Ascensori S.a.s.","","3012","Venezia","2025-05-19"],
+  ["C008","Marin Elettrica sas","96030820276","30175","Venezia","05/06"],
+  ["C009","Costa Gru S.p.A.","46281940273","32100","Treviso","2025-08-22"],
+  ["C010","Zanon Logistica S.r.l.","31472580278","31100","Treviso","2025-03-14"]
+ ];
+ var COLS=t(["Code","Company name","VAT no.","Postcode","City","Last inspection"],["Codice","Ragione sociale","P.IVA","CAP","Città","Ultimo verbale"]);
+ function vatOk(v){if(!/^\d{11}$/.test(v))return false;var x=0,y=0;for(var i=0;i<10;i+=2)x+=+v[i];for(i=1;i<10;i+=2){var d=+v[i]*2;y+=d>9?d-9:d;}return (10-(x+y)%10)%10===+v[10];}
+ function cell(v,s,why,raw){return {v:v,s:s,why:why,raw:raw};}
+ function rName(r){var o=r,v=r.replace(/\s+/g," ").trim();
+  if(v===v.toUpperCase()||v===v.toLowerCase())v=v.toLowerCase().replace(/(^|[\s&])([a-zà-ù])/g,function(m,a,b){return a+b.toUpperCase();});
+  v=v.replace(/\b(s\.?r\.?l\.?)$/i,"S.r.l.").replace(/\b(s\.?n\.?c\.?)$/i,"S.n.c.").replace(/\b(s\.?a\.?s\.?)$/i,"S.a.s.").replace(/\b(s\.?p\.?a\.?)$/i,"S.p.A.");
+  return v===o?cell(v,"ok"):cell(v,"fix",t("Spaces trimmed, capitals and legal form written the standard way. Same company, same name, nothing guessed.","Spazi tolti, maiuscole e forma societaria scritte nel modo standard. Stessa azienda, stesso nome, niente di indovinato."),o);}
+ function rVat(r){var v=r.replace(/\s/g,"").replace(/^IT/i,"");
+  if(!r)return cell("","unc",t("Missing in the source. A VAT number is never inferred from the name: it stays empty until someone provides it.","Manca nel dato di partenza. Una partita IVA non si deduce dal nome: resta vuota finché qualcuno non la fornisce."));
+  if(/^\d{10}$/.test(v)&&vatOk("0"+v))return cell("0"+v,"fix",t("10 digits: the leading zero was lost, typically by a spreadsheet. With the zero back, the check digit is correct.","10 cifre: lo zero iniziale è andato perso, di solito per colpa di un foglio di calcolo. Rimesso lo zero, la cifra di controllo torna."),r);
+  if(!vatOk(v))return cell(r,"flag",t("The check digit does not match: one digit is wrong, and nothing says which. A person has to look at the original document.","La cifra di controllo non torna: una cifra è sbagliata e niente dice quale. Serve una persona che guardi il documento originale."));
+  return v===r?cell(v,"ok"):cell(v,"fix",t("The IT prefix removed: the field holds the number only. Check digit verified.","Tolto il prefisso IT: il campo contiene solo il numero. Cifra di controllo verificata."),r);}
+ function rCap(r,city){var k=city.toLowerCase(),list=CAP[k]||[];
+  if(!r){if(list.length===1)return cell(list[0],"fix",t("Missing, but this city has only one postcode, so it can be filled in safely.","Mancava, ma questa città ha un solo CAP, quindi si può inserire senza rischi."),"");
+   return cell("","unc",t("Missing, and this city has several postcodes. Without the street address, picking one would be inventing it.","Manca, e questa città ha più CAP. Senza l'indirizzo, sceglierne uno vorrebbe dire inventarlo."));}
+  if(!/^\d{5}$/.test(r))return cell(r,"flag",t("A postcode has five digits. This one has four, and there is no way to know which digit is missing.","Un CAP ha cinque cifre. Questo ne ha quattro, e non c'è modo di sapere quale manca."));
+  var owner=null;Object.keys(CAP).forEach(function(c){if(CAP[c].length===1&&CAP[c][0]===r)owner=c;});
+  if(list.length&&list.indexOf(r)<0)return cell(r,"flag",t("This postcode belongs to "+(owner?owner.charAt(0).toUpperCase()+owner.slice(1):"another city")+", the city says "+city+". One of the two is wrong, and the data does not say which.","Questo CAP è di "+(owner?owner.charAt(0).toUpperCase()+owner.slice(1):"un'altra città")+", la città dice "+city+". Uno dei due è sbagliato, e i dati non dicono quale."));
+  return cell(r,"ok");}
+ function okDate(y,m,d){var x=new Date(Date.UTC(y,m-1,d));return x.getUTCFullYear()===y&&x.getUTCMonth()===m-1&&x.getUTCDate()===d;}
+ function pad(n){return (n<10?"0":"")+n;}
+ function rDate(r){var m;
+  if((m=r.match(/^(\d{4})-(\d{2})-(\d{2})$/)))return okDate(+m[1],+m[2],+m[3])?cell(r,"ok"):cell(r,"flag",t("This date does not exist.","Questa data non esiste."));
+  if((m=r.match(/^(\d{1,2})[\/-](\d{1,2})[\/-](\d{4})$/))){var d=+m[1],mo=+m[2],y=+m[3];
+   if(!okDate(y,mo,d))return cell(r,"flag",t("This date does not exist ("+d+"/"+mo+"). It is not moved to the nearest valid day: someone checks the inspection record.","Questa data non esiste ("+d+"/"+mo+"). Non la sposto al giorno valido più vicino: qualcuno controlla il verbale."));
+   return cell(y+"-"+pad(mo)+"-"+pad(d),"fix",t("Rewritten in one format. The source declares day/month/year, so the reading is not a guess.","Riscritta in un unico formato. Il gestionale dichiara giorno/mese/anno, quindi la lettura non è un'ipotesi."),r);}
+  if(/^\d{1,2}\/\d{1,2}$/.test(r))return cell(r,"unc",t("Day and month, no year. Any year would be invented.","Giorno e mese, senza anno. Qualunque anno sarebbe inventato."));
+  return cell(r,"flag",t("Unreadable as a date.","Non si legge come data."));}
+ function run(){
+  var rows=RAW.map(function(r){return [cell(r[0],"ok"),rName(r[1]),rVat(r[2]),rCap(r[3],r[4]),cell(r[4],"ok"),rDate(r[5])];});
+  var seen={};rows.forEach(function(r,i){var v=r[2].v;if(!v||r[2].s==="flag")return;if(seen[v]!==undefined){var j=seen[v];r[2]=cell(r[2].v,"flag",(r[2].why?r[2].why+" ":"")+t("Same VAT number as "+RAW[j][0]+": probably the same customer entered twice. Merging is a decision for a person, not for the rules.","Stessa partita IVA di "+RAW[j][0]+": probabilmente lo stesso cliente inserito due volte. Unire i due record è una decisione per una persona, non per le regole."),r[2].raw);}else seen[v]=i;});
+  return rows;}
+ var shown=false;
+ function draw(rows){
+  var html='<table class="rc"><thead><tr>'+COLS.map(function(c){return '<th>'+esc(c)+'</th>';}).join("")+'</tr></thead><tbody>';
+  (rows||RAW.map(function(r){return r.map(function(v){return cell(v,"ok");});})).forEach(function(r,i){html+='<tr>'+r.map(function(c,j){return '<td class="s-'+c.s+'" data-r="'+i+'" data-c="'+j+'">'+(c.v?esc(c.v):'<span style="color:var(--ink-3)">'+t("empty","vuoto")+'</span>')+(c.raw!==undefined&&c.s!=="ok"&&c.raw!==c.v?'<small>'+esc(c.raw||t("empty","vuoto"))+'</small>':'')+'</td>';}).join("")+'</tr>';});
+  html+='</tbody></table>';document.getElementById("rcTable").innerHTML=html;
+  if(rows){var n={fix:0,flag:0,unc:0};rows.forEach(function(r){r.forEach(function(c){if(n[c.s]!==undefined)n[c.s]++;});});
+   document.getElementById("rcCount").textContent=t(n.fix+" corrected · "+n.flag+" flagged · "+n.unc+" uncertain",n.fix+" corrette · "+n.flag+" segnalate · "+n.unc+" incerte");
+   document.querySelectorAll("#rcTable td").forEach(function(td){var c=rows[+td.dataset.r][+td.dataset.c];if(c.s==="ok")return;td.onclick=function(){document.querySelectorAll("#rcTable td.sel").forEach(function(x){x.classList.remove("sel");});td.classList.add("sel");var lab={fix:t("Corrected","Corretta"),flag:t("Flagged","Segnalata"),unc:t("Uncertain","Incerta")}[c.s];document.getElementById("rcWhy").innerHTML='<b>'+lab+'.</b> '+esc(c.why);};});
+  }else document.getElementById("rcCount").textContent="";
+ }
+ rcEl.innerHTML='<div class="center"><div class="eyebrow">'+t("Try it · invented data","Prova · dati inventati")+'</div><h2 style="font-size:clamp(24px,3vw,34px)">'+t("Ten dirty records. The rules never invent a value.","Dieci righe sporche. Le regole non inventano mai un valore.")+'</h2><p class="lead">'+t("A customer table as it comes out of an old ERP. Run the rules: every cell ends up corrected, flagged for a person, or marked uncertain. Click a coloured cell to read why.","Una tabella clienti come esce da un vecchio gestionale. Lancia le regole: ogni cella finisce corretta, segnalata a una persona o marcata come incerta. Clicca una cella colorata per leggere il perché.")+'</p></div>'+
+  '<div class="tool"><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><button class="btn primary" type="button" id="rcRun">'+t("Run the rules","Lancia le regole")+' <span class="arr">-&gt;</span></button><button class="btn" type="button" id="rcReset">'+t("Back to the raw data","Torna ai dati grezzi")+'</button><span class="rc-count" id="rcCount"></span></div>'+
+  '<div class="rc-wrap" id="rcTable"></div><div class="rc-legend"><span><i class="k1"></i>'+t("corrected, with the reason","corretta, con il motivo")+'</span><span><i class="k2"></i>'+t("flagged: a person decides","segnalata: decide una persona")+'</span><span><i class="k3"></i>'+t("uncertain: not enough evidence","incerta: non ci sono prove sufficienti")+'</span></div>'+
+  '<div class="rc-why" id="rcWhy">'+t("The original value stays visible under every change, struck through.","Sotto ogni modifica resta visibile il valore originale, barrato.")+'</div>'+
+  '<p class="muted">'+t("Invented companies and numbers. The real engine works the same way on client datasets, with a rule pack per client and lineage for every cell.","Aziende e numeri inventati. Il motore vero lavora così sui dati dei clienti, con un pacchetto di regole per ogni cliente e la storia di ogni cella.")+'</p></div>';
+ draw(null);
+ document.getElementById("rcRun").onclick=function(){gcEvent("recon-run");draw(run());document.getElementById("rcWhy").innerHTML=t("Click a coloured cell to read why.","Clicca una cella colorata per leggere il perché.");};
+ document.getElementById("rcReset").onclick=function(){draw(null);document.getElementById("rcWhy").innerHTML=t("The original value stays visible under every change, struck through.","Sotto ogni modifica resta visibile il valore originale, barrato.");};
+}
+
+/* ---------- 3. CV generated from the site data ---------- */
+function printCV(){
+ gcEvent("cv-pdf");
+ var d=document.getElementById("cvDoc");if(!d){d=document.createElement("div");d.id="cvDoc";document.body.appendChild(d);}
+ function it(h,when,inner){return '<div class="it"><div class="hd"><b>'+h+'</b><span>'+esc(when)+'</span></div>'+(inner||'')+'</div>';}
+ var h='<h1>Ambra Danesin</h1><p class="sub">'+t("AI Systems Developer · Backend Developer · External CTO · AI instructor","AI Systems Developer · Backend Developer · CTO esterna · Docente di AI")+'</p>';
+ h+='<div class="ct">'+MAIL+' · linkedin.com/in/ambradanesin · github.com/ambradan · ambradan.github.io · '+t("Venice, Italy · Italian (native), English (C1)","Venezia · Italiano (madrelingua), inglese (C1)")+'</div>';
+ h+='<p>'+t("I build AI systems that run in production, and I check whether they tell the truth: backends, AI routing, data engines, internal platforms. External CTO of a group in a private-equity portfolio. Corporate AI programs for banks, manufacturers and publishers. Independent AI safety research with two public pre-registrations.","Costruisco sistemi AI che girano in produzione e controllo che dicano la verità: backend, instradamento tra modelli, motori di dati, piattaforme interne. CTO esterna di un gruppo in portafoglio a un fondo di private equity. Programmi di formazione AI per banche, aziende manifatturiere ed editori. Ricerca indipendente in AI safety con due pre-registrazioni pubbliche.")+'</p>';
+ h+='<h2>'+t("Experience","Esperienze")+'</h2>';
+ WORK.forEach(function(w){h+=it(esc(w.org)+' · '+esc(w.title),w.when,'<ul>'+w.done.slice(0,3).map(function(x){return '<li>'+esc(x)+'</li>';}).join("")+'</ul>');});
+ h+='<h2>'+t("Teaching","Formazione")+'</h2>';
+ TEACH.forEach(function(x){h+=it(esc(x.org)+' · '+esc(x.title),x.when,'<p>'+esc([x.hours,x.people,x.target].filter(Boolean).join(" · "))+'</p>');});
+ h+=it('Talent Garden · '+t("instructor on the master in AI Engineering &amp; Vibe Coding","docente del master in AI Engineering &amp; Vibe Coding"),t("Feb to May 2027","feb-mag 2027"));
+ h+='<h2>'+t("Research and programs","Ricerca e programmi")+'</h2>';
+ h+=it('Freedom v2 · '+t("principal investigator","responsabile dello studio"),t("Nov 2025 to now","da nov 2025"),'<p>'+t("A persistent, instrumented LLM system and a pre-registered study on which markers depend on the model and which on the scaffold. Pre-registrations: osf.io/hjfxr, osf.io/r6z3c. Code: github.com/ambradan/freedom-v2.","Un sistema LLM persistente e strumentato, e uno studio pre-registrato su quali indicatori dipendono dal modello e quali dallo scaffold. Pre-registrazioni: osf.io/hjfxr, osf.io/r6z3c. Codice: github.com/ambradan/freedom-v2.")+'</p>');
+ PROGS.forEach(function(x){h+=it(esc(x.org)+' · '+esc(x.title),x.when,'<p>'+esc(x.status+(x.sel?" · "+x.sel:""))+'</p>');});
+ h+='<h2>'+t("Talks","Interventi")+'</h2><ul>';
+ TALKS.concat(EVENTS.filter(function(e){return e.talk&&!e.tbc;})).sort(function(a,b){return a.iso<b.iso?-1:1;}).forEach(function(e){h+='<li>'+esc(e.d)+' · '+esc(e.t)+(e.city&&e.city!=="Online"?' · '+esc(e.city):'')+'</li>';});
+ h+='</ul><h2>'+t("Skills","Competenze")+'</h2>';
+ h+='<p><b>'+t("Languages and frameworks","Linguaggi e framework")+':</b> Python, TypeScript / JavaScript, Node.js, React, Next.js, Ruby on Rails, SQL / PostgreSQL</p>';
+ h+='<p><b>AI:</b> '+t("Claude API in production, multi-provider routing with fallback, RAG, agents and tool calling, evals, Vertex AI, AWS Bedrock, local open-weights inference","Claude API in produzione, instradamento tra più fornitori con riserva, RAG, agenti e chiamate a strumenti, valutazioni, Vertex AI, AWS Bedrock, modelli aperti in locale")+'</p>';
+ h+='<p><b>'+t("Infrastructure","Infrastruttura")+':</b> Docker, Google Cloud, Terraform, CI/CD, Supabase, Vercel, Railway, Qdrant</p>';
+ h+='<p><b>'+t("Method","Metodo")+':</b> '+t("pre-registration and experimental design, problem framing, deterministic rules before models, data reconciliation with lineage","pre-registrazione e disegno sperimentale, problem framing, regole fisse prima dei modelli, riconciliazione dei dati con tracciamento")+'</p>';
+ var today=new Date().toISOString().slice(0,10);
+ h+='<div class="ft">'+t("Generated from ambradan.github.io on ","Generato da ambradan.github.io il ")+today+'. '+t("Details, links and evidence on the site.","Dettagli, link ed evidenze sul sito.")+'</div>';
+ d.innerHTML=h;
+ var oldTitle=document.title;document.title=t("Ambra Danesin - CV","Ambra Danesin - CV");
+ document.body.classList.add("printcv");
+ var done=function(){document.body.classList.remove("printcv");document.title=oldTitle;window.removeEventListener("afterprint",done);};
+ window.addEventListener("afterprint",done);
+ setTimeout(function(){window.print();},60);
+}
+
+/* ---------- 4. latest page written by Freedom ---------- */
+var fz=document.getElementById("fzLatest");
+if(fz&&window.fetch){
+ fetch("https://raw.githubusercontent.com/ambradan/freedom-interface/main/pages-v2.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():null;}).then(function(list){
+  if(!list||!list.length)return;
+  list.sort(function(a,b){return a.date<b.date?1:-1;});var p=list[0];
+  var title=String(p.title||"").replace(/\s*[|\-–—]\s*Freedom( v2)?\s*$/i,"").trim();
+  fz.href="https://freedom-interface.vercel.app/"+encodeURIComponent(p.filename);
+  fz.innerHTML='<span class="d">'+t("Latest page written by Freedom v2, unedited","Ultima pagina scritta da Freedom v2, senza modifiche")+'</span><b>'+esc(title)+'</b><span class="t">'+esc(p.date)+'</span>';
+  fz.style.display="block";
+ }).catch(function(){});
+}
+
+/* ---------- 5. talk pages ---------- */
+var TI=[
+ {k:"Casa Sanremo",links:[[t("Event page","Pagina dell'evento"),"https://invest.casasanremo.it/event/non-sa-se-e-cosciente-intanto-ha-un-conto-in-banca-e-una-vita-sociale/"]],
+  w:t("\"AI doesn't know if it is conscious. Meanwhile it has a bank account and a social life.\" Fifth edition of Casa Sanremo Invest, Palafiori, 24 February 2026, with host Stefano Bargiacchi. A finance and crypto audience with institutions in the room.","\"L'AI non sa se è cosciente. Intanto ha un conto in banca e una vita sociale.\" Quinta edizione di Casa Sanremo Invest, Palafiori, 24 febbraio 2026, con Stefano Bargiacchi come host. Pubblico di finanza e crypto, con le istituzioni in sala.")},
+ {k:"DigIT Export",links:[[t("Event page","Pagina dell'evento"),"https://eventi.promositalia.com/digitexport-day/digit-export-day-2026-ferrara.kl"]],
+  w:t("Promos Italia, Ferrara. A 30-minute talk on AI for exporting companies, then an export AI lab with a radar dashboard and templates in six languages.","Promos Italia, Ferrara. Un talk di 30 minuti sull'AI per le imprese che esportano, poi un laboratorio con una dashboard radar e modelli in sei lingue.")},
+ {k:"Finlogic",links:[[t("Event page","Pagina dell'evento"),"https://www.finlogic.it/supply-chain-intelligente-ai-tracciabilita-futuro-operativo"]],
+  w:t("\"From zero to AI\", Accademia 2026, Bologna, 14 May. For the group's clients and partners, 55 registered, with a closing round table.","\"Da zero all'AI\", Accademia 2026, Bologna, 14 maggio. Per clienti e partner del gruppo, 55 iscritti, con una tavola rotonda di chiusura.")},
+ {k:"Città di Lugano",links:[],w:t("\"When we no longer know whom to trust\", invited by the city's digital innovation office.","\"Quando non sappiamo più di chi fidarci\", su invito dell'ufficio innovazione digitale della città.")},
+ {k:"Tech Meetup Day",links:[],video:["https://www.youtube.com/watch?v=c_CJEinbNPM",t("Watch the episode on YouTube","Guarda la puntata su YouTube")],
+  w:t("Live episode of the 404 Code Not Found podcast at the Tech Meetup Day, SmartCityLab Milan, with Federico Maccari: MVPs, AI and how a tech career is built today.","Puntata dal vivo del podcast 404 Code Not Found al Tech Meetup Day, SmartCityLab Milano, con Federico Maccari: MVP, AI e come si costruisce oggi una carriera nel tech.")},
+ {k:"Nebulab",links:[["nebulab.com","https://nebulab.com"]],w:t("\"Merchant and the Machine\", Commerce Symposium, Spazio Pio XI, Milan, 8 October. AI consciousness as a concrete question, and responsibility in agentic systems.","\"Merchant and the Machine\", Commerce Symposium, Spazio Pio XI, Milano, 8 ottobre. La coscienza dell'AI come domanda concreta, e la responsabilità nei sistemi agentici.")},
+ {k:"While True",links:[],w:t("\"Stack, projects, GitHub: what to really tell an IT recruiter\", a webinar for junior and mid-level developers, 14 October.","\"Stack, progetti, GitHub: cosa dire davvero a un recruiter IT\", un webinar per sviluppatori junior e mid, 14 ottobre.")},
+ {k:"TEDxBarletta",links:[[t("TEDxBarletta programme","Programma di TEDxBarletta"),"https://tedxbarletta.it/"]],note:t("The video is not out yet. It will be linked here.","Il video non è ancora uscito. Lo metto qui appena c'è."),
+  w:t("Theme \"Supernova\", Teatro Curci, 17 October, about 3,500 people. On moral uncertainty about AI systems: we do not know, and how we behave when we do not know says everything about us.","Tema \"Supernova\", Teatro Curci, 17 ottobre, circa 3.500 persone. Sull'incertezza morale sui sistemi AI: non lo sappiamo, e come ci comportiamo quando non lo sappiamo dice tutto di noi.")},
+ {k:"Telesveva",links:[[t("Telesveva live channel","Diretta di Telesveva"),"https://telesveva.it/live/"]],note:t("Live broadcast on Caffellatte, no recording online.","Diretta dentro Caffellatte, nessuna registrazione online."),
+  w:t("Morning show Caffellatte, 2 November, 8:10 am. AI, consciousness and how society perceives these systems.","Programma del mattino Caffellatte, 2 novembre, alle 8:10. AI, coscienza e come la società percepisce questi sistemi.")},
+ {k:"Talent Garden",links:[[t("Event page","Pagina dell'evento"),"https://www.eventbrite.com/e/biglietti-bootcamp-night-ai-for-tech-2003827427778"]],
+  w:t("Bootcamp Night \"AI for Tech\", slot \"The CTO Case\", 12 November: \"Do you really need AI? Start from no: bring AI into systems without losing control.\" Three real cases and five questions before saying yes.","Bootcamp Night \"AI for Tech\", slot \"The CTO Case\", 12 novembre: \"Ti serve davvero l'AI? Parti dal no: porta l'AI nei sistemi senza perdere il controllo.\" Tre casi veri e cinque domande prima del sì."),
+  extra:'<p><a href="#need-ai" data-close-mod="1">'+t("Try the five questions on this site","Prova le cinque domande su questo sito")+' -&gt;</a></p>'},
+ {k:"Venice AI Expo",links:[["veniceaiexpo.ai","https://veniceaiexpo.ai"]],w:t("Complex systems and the perception of empathy: what happens to a society when systems feel empathic, and where the manipulation risks sit.","Sistemi complessi e percezione di empatia: cosa succede a una società quando i sistemi sembrano empatici, e dove stanno i rischi di manipolazione.")}
+];
+function findTI(title){for(var i=0;i<TI.length;i++)if(title.indexOf(TI[i].k)===0||title.indexOf(TI[i].k)>-1)return TI[i];return null;}
+function openTalk(e){var x=findTI(e.t);if(!x)return;gcEvent("talk-"+x.k.toLowerCase().replace(/\W+/g,"-"));
+ openModal('<div class="d">'+esc(e.d)+(e.city?' · '+esc(e.city):'')+'</div><h3>'+esc(e.t)+'</h3><p>'+esc(x.w)+'</p>'+(x.video?'<a class="vid" href="'+x.video[0]+'" target="_blank" rel="noopener">'+esc(x.video[1])+'</a>':'')+(x.note?'<p style="font-size:14px;color:var(--ink-3)">'+esc(x.note)+'</p>':'')+(x.extra||'')+(x.links.length?'<div class="links2">'+x.links.map(function(l){return '<a href="'+l[1]+'" target="_blank" rel="noopener">'+esc(l[0])+' -&gt;</a>';}).join("")+'</div>':''));
+ var c=document.querySelector('[data-close-mod]');if(c)c.onclick=function(){closeModal();};}
+function wire(container,list){if(!container)return;var rows=container.querySelectorAll(".ev");list.forEach(function(e,i){var r=rows[i];if(!r||!findTI(e.t))return;r.classList.add("has");r.setAttribute("role","button");r.tabIndex=0;r.onclick=function(){openTalk(e);};r.onkeydown=function(k){if(k.key==="Enter")openTalk(e);};});}
+wire(document.getElementById("events"),NEXT_EV);
+wire(document.getElementById("pastTalks"),PAST_EV);
+var cs=document.getElementById("cities");
+if(cs){var all=TALKS.concat(EVENTS.filter(function(e){return e.talk;}));cs.querySelectorAll("a").forEach(function(a,i){var e=all[i];if(e&&findTI(e.t)){a.href="#contact";a.onclick=function(ev){ev.preventDefault();openTalk(e);};}});}
+
+/* ---------- deep links: #need-ai, #demo ---------- */
+function deep(){var h=location.hash.replace("#","");var id={"need-ai":"needAi","demo":"recon"}[h];if(id)setTimeout(function(){var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth",block:"start"});},180);}
+window.addEventListener("hashchange",deep);deep();
+})();
+
 /* ================= ROUTER ================= */
 var pages=Array.prototype.slice.call(document.querySelectorAll(".page")),navLinks=Array.prototype.slice.call(document.querySelectorAll(".nav a[href^='#']")),mobile=document.getElementById("mobile");
-var ALIAS={enais:"programs"};
+var ALIAS={enais:"programs","need-ai":"programs",demo:"programs"};
 function route(){
   var h=(location.hash||"#home").replace("#","");
   if(h==="session"||h==="guide"){show("programs");openOv(h);return;}
