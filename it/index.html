@@ -415,6 +415,54 @@ table.rc td small{display:block;color:var(--ink-3);text-decoration:line-through;
 .rc-why{margin-top:14px;min-height:48px;padding:14px 16px;border-radius:var(--r);background:var(--bg-2);font-size:14.5px;color:var(--ink-2)}
 .rc-why b{color:var(--ink)}
 .rc-count{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);margin-left:auto}
+.ds-steps{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:18px}
+.ds-steps button{font:inherit;font-size:14.5px;font-weight:600;color:var(--ink-2);background:none;border:1px solid transparent;border-radius:999px;padding:8px 16px;cursor:pointer}
+.ds-steps button.on{color:#2B5BFF;background:color-mix(in srgb,#2B5BFF 10%,transparent);border-color:color-mix(in srgb,#2B5BFF 30%,transparent)}
+.ds-steps button:last-child{margin-left:auto;font-weight:500}
+.ds-ask{font-size:15px;color:var(--ink-2);margin:0 0 12px}
+.ds-qs{display:flex;gap:10px;flex-wrap:wrap}
+.ds-qs .btn{text-align:left}
+.ds-two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+@media(max-width:760px){.ds-two{grid-template-columns:1fr}}
+.ds-box{border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column}
+.ds-box .lab{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin-bottom:10px}
+.ds-box .said{font-size:17px;line-height:1.45;margin:0 0 14px;color:var(--ink)}
+.ds-box .truth{font-size:14.5px;color:var(--ink-2);margin:auto 0 0;padding-top:12px;border-top:1px dashed var(--line)}
+.ds-box.bad{border-color:color-mix(in srgb,#E5484D 45%,var(--line));background:color-mix(in srgb,#E5484D 5%,transparent)}
+.ds-box.bad .truth b{color:#E5484D}
+.ds-box.good{border-color:color-mix(in srgb,#2B5BFF 40%,var(--line));background:color-mix(in srgb,#2B5BFF 5%,transparent)}
+.ds-box.good .truth b{color:#2B5BFF}
+.ds-next{margin-top:16px;text-align:right}
+.ds-costs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.ds-cost{font:inherit;text-align:left;border:1px solid var(--line);border-radius:var(--r);background:var(--bg);padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:4px;color:var(--ink)}
+.ds-cost:hover{border-color:color-mix(in srgb,#2B5BFF 40%,var(--line))}
+.ds-cost .who,.ds-try .who{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.ds-cost b{font-size:15px}
+.ds-cost .more{display:none;font-size:14px;color:var(--ink-2);line-height:1.45}
+.ds-cost.open .more{display:block}
+.ds-cost.open{border-color:color-mix(in srgb,#E5484D 45%,var(--line))}
+.ds-cost .lab{display:block;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin:10px 0 2px}
+.ds-cost{position:relative;padding-right:36px}
+.ds-cost::after{content:"+";position:absolute;top:12px;right:14px;font-size:18px;color:var(--ink-3)}
+.ds-cost.open::after{content:"−"}
+.ds-total{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+@media(max-width:760px){.ds-total{grid-template-columns:1fr}}
+.ds-total>div{border-radius:var(--r);padding:14px 16px;background:var(--bg-2)}
+.ds-total span{display:block;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin-bottom:4px}
+.ds-total>div:first-child b{color:#E5484D}
+.ds-total>div:last-child b{color:#2B5BFF}
+.ds-try{border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;margin-bottom:10px}
+.ds-try .cellq{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px}
+.ds-try .cellq b{font-family:var(--mono);font-size:14.5px}
+.ds-try .opts{display:flex;gap:8px;flex-wrap:wrap}
+.ds-try .opts .btn{font-size:14px;padding:8px 14px}
+.ds-try .opts .btn[disabled]{cursor:default;opacity:.55}
+.ds-try .opts .btn.right{opacity:1;border-color:#2B5BFF;background:color-mix(in srgb,#2B5BFF 12%,transparent);color:#2B5BFF}
+.ds-try .opts .btn.wrong{opacity:1;border-color:#E5484D;background:color-mix(in srgb,#E5484D 10%,transparent);color:#E5484D;text-decoration:line-through}
+.ds-try .res{font-size:14.5px;color:var(--ink-2);margin:10px 0 0}
+.ds-score{font-size:15px;margin-top:6px}
+.ds-score .btn{margin-left:10px;font-size:14px;padding:6px 12px}
+
 .fz{display:block;margin-top:10px;line-height:1.6;max-width:60ch;font-family:var(--mono);font-size:12.5px;color:var(--ink-3);text-decoration:none}
 .fz::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--blue);margin-right:8px;vertical-align:2px}
 .fz:hover{text-decoration:none}.fz:hover b{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
@@ -662,7 +710,7 @@ table.rc td small{display:block;color:var(--ink-3);text-decoration:line-through;
   </div></section>
   <section class="sec" id="prova"><div class="wrap">
     <div class="center"><div class="eyebrow">Prova</div><h2 style="font-size:clamp(24px,3vw,34px)">Due cose da provare, due minuti ciascuna.</h2>
-    <div class="tabs" role="tablist" data-tabs="tools"><button type="button" role="tab" data-tab="needAi" class="on">Ti serve davvero l'AI?</button><button type="button" role="tab" data-tab="recon">Dieci righe sporche</button></div></div>
+    <div class="tabs" role="tablist" data-tabs="tools"><button type="button" role="tab" data-tab="needAi" class="on">Ti serve davvero l'AI?</button><button type="button" role="tab" data-tab="recon">Dati sporchi, costi veri</button></div></div>
     <div class="tabp on" id="needAi"><div id="needAiW"></div></div>
     <div class="tabp" id="recon"><div id="reconW"></div></div>
   </div></section>
@@ -1254,11 +1302,81 @@ if(rcEl){
    document.querySelectorAll("#rcTable td").forEach(function(td){var c=rows[+td.dataset.r][+td.dataset.c];if(c.s==="ok")return;td.onclick=function(){document.querySelectorAll("#rcTable td.sel").forEach(function(x){x.classList.remove("sel");});td.classList.add("sel");var lab={fix:t("Corrected","Corretta"),flag:t("Flagged","Segnalata"),unc:t("Uncertain","Incerta")}[c.s];document.getElementById("rcWhy").innerHTML='<b>'+lab+'.</b> '+esc(c.why);};});
   }else document.getElementById("rcCount").textContent="";
  }
- rcEl.innerHTML='<div class="center"><h3 class="toolh">'+t("Ten dirty records. The rules never invent a value.","Dieci righe sporche. Le regole non inventano mai un valore.")+'</h3><p class="lead">'+t("A customer table as it comes out of an old ERP. Run the rules: every cell ends up corrected, flagged for a person, or marked uncertain. Click a coloured cell to read why.","Una tabella clienti come esce da un vecchio gestionale. Lancia le regole: ogni cella finisce corretta, segnalata a una persona o marcata come incerta. Clicca una cella colorata per leggere il perché.")+'</p></div>'+
-  '<div class="tool"><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><button class="btn primary" type="button" id="rcRun">'+t("Run the rules","Lancia le regole")+' <span class="arr">-&gt;</span></button><button class="btn" type="button" id="rcReset">'+t("Back to the raw data","Torna ai dati grezzi")+'</button><span class="rc-count" id="rcCount"></span></div>'+
-  '<div class="rc-wrap" id="rcTable"></div><div class="rc-legend"><span><i class="k1"></i>'+t("corrected, with the reason","corretta, con il motivo")+'</span><span><i class="k2"></i>'+t("flagged: a person decides","segnalata: decide una persona")+'</span><span><i class="k3"></i>'+t("uncertain: not enough evidence","incerta: non ci sono prove sufficienti")+'</span></div>'+
-  '<div class="rc-why" id="rcWhy">'+t("The original value stays visible under every change, struck through.","Sotto ogni modifica resta visibile il valore originale, barrato.")+'</div>'+
-  '<p class="muted">'+t("Invented companies and numbers. The real engine works the same way on client datasets, with a rule pack per client and lineage for every cell.","Aziende e numeri inventati. Il motore vero lavora così sui dati dei clienti, con un pacchetto di regole per ogni cliente e la storia di ogni cella.")+'</p></div>';
+ /* ===== three-step story: ask the AI, what it costs, try it yourself ===== */
+ var QS=[
+  {q:t("How many customers do we have in Vicenza?","Quanti clienti abbiamo a Vicenza?"),
+   raw:t("Two: Ferro Serramenti S.r.l. and ferro serramenti srl.","Due: Ferro Serramenti S.r.l. e ferro serramenti srl."),
+   real:t("Wrong. It is one company entered twice: two reminders, two invoices, a history split in half.","Sbagliato. È la stessa azienda inserita due volte: due solleciti, due fatture, uno storico spezzato in due."),
+   clean:t("One: Ferro Serramenti. It appears twice (C005 and C006) with the same VAT number once the missing zero is put back. Merging the two records is up to a person.","Uno: Ferro Serramenti. Compare due volte (C005 e C006) con la stessa partita IVA, una volta rimesso lo zero perso. Unire le due schede lo decide una persona.")},
+  {q:t("Which customers in Treviso can we invoice this month?","Quali clienti di Treviso possiamo fatturare questo mese?"),
+   raw:t("Three: Bianchi Termotecnica, Costa Gru and Zanon Logistica. All ready.","Tre: Bianchi Termotecnica, Costa Gru e Zanon Logistica. Tutto pronto."),
+   real:t("Bianchi has no postcode, so its invoice bounces. Costa Gru has a Belluno postcode with Treviso as the city: one of the two is wrong.","Bianchi non ha il CAP, quindi la fattura torna indietro. Costa Gru ha il CAP di Belluno e Treviso come città: uno dei due è sbagliato."),
+   clean:t("Two are ready: Bianchi (Treviso has a single postcode, so the rules filled it in) and Zanon. Costa Gru waits: postcode and city disagree, someone checks the address first.","Due sono pronti: Bianchi (Treviso ha un solo CAP, quindi le regole l'hanno inserito) e Zanon. Costa Gru aspetta: CAP e città non tornano, prima qualcuno controlla l'indirizzo.")},
+  {q:t("Can we send the e-invoice to everyone?","Possiamo mandare la fattura elettronica a tutti?"),
+   raw:t("Yes for 9 out of 10. Only Neri Ascensori is missing a VAT number.","Sì per 9 su 10. Solo a Neri Ascensori manca la partita IVA."),
+   real:t("6 out of 10 would be rejected by the tax agency's exchange system: wrong or malformed VAT numbers, missing or four-digit postcodes. A rejected invoice counts as never issued.","6 su 10 verrebbero scartate dallo SdI, il sistema dell'Agenzia delle Entrate: partite IVA sbagliate o scritte male, CAP mancanti o di quattro cifre. Una fattura scartata vale come mai emessa."),
+   clean:t("7 have the data the tax system checks. 3 stop before leaving: Gallo Costruzioni (one VAT digit is wrong), Neri Ascensori (no VAT number, four-digit postcode), Verdi & Figli (no postcode, and Mestre has five).","7 hanno i dati che lo SdI controlla. 3 si fermano prima di partire: Gallo Costruzioni (una cifra della partita IVA è sbagliata), Neri Ascensori (partita IVA mancante, CAP di quattro cifre), Verdi & Figli (CAP mancante, e Mestre ne ha cinque).")}
+ ];
+ var COSTS=[
+  {who:"C004 · Gallo Costruzioni",what:t("VAT number with a wrong digit","Partita IVA con una cifra sbagliata"),
+   then:t("The invoice is rejected (code 00305) and counts as never issued. Payment slips until someone notices.","La fattura viene scartata (codice 00305) e vale come mai emessa. L'incasso slitta finché qualcuno non se ne accorge."),
+   rules:t("Flagged: a person checks the original document.","Segnalata: una persona controlla il documento originale.")},
+  {who:"C005 + C006 · Ferro Serramenti",what:t("The same customer entered twice","Lo stesso cliente inserito due volte"),
+   then:t("Two reminders, two invoices, and half of the history in each record. Any count of customers is wrong by one.","Due solleciti, due fatture, metà dello storico in ogni scheda. Ogni conteggio dei clienti sbaglia di uno."),
+   rules:t("Same VAT number spotted. Merging is left to a person.","Trovata la stessa partita IVA. Unire le schede lo decide una persona.")},
+  {who:"C003 · Verdi & Figli",what:t("Postcode missing, city Mestre","CAP mancante, città Mestre"),
+   then:t("No postcode, no e-invoice. And whoever fills it in by guessing puts a wrong address on a tax document.","Senza CAP la fattura elettronica non parte. E chi lo inserisce a occhio mette un indirizzo sbagliato su un documento fiscale."),
+   rules:t("Uncertain: Mestre has five postcodes, so the rules ask for the street.","Incerta: Mestre ha cinque CAP, quindi le regole chiedono la via.")},
+  {who:"C004 · Gallo Costruzioni",what:t("Last inspection on 31 February","Ultimo verbale del 31 febbraio"),
+   then:t("The date does not exist, so the next inspection date cannot be computed. The deadline disappears from every reminder.","La data non esiste, quindi la scadenza della prossima verifica non si calcola. Sparisce da ogni promemoria."),
+   rules:t("Flagged: it is not moved to the nearest valid day.","Segnalata: non viene spostata al giorno valido più vicino.")},
+  {who:"C008 · Marin Elettrica",what:t("Inspection on 05/06, no year","Verbale del 05/06, senza anno"),
+   then:t("A program picks a year on its own. If it picks the wrong one, an overdue inspection looks fine.","Un programma sceglie l'anno da solo. Se sceglie quello sbagliato, una verifica scaduta sembra in regola."),
+   rules:t("Uncertain: any year would be invented.","Incerta: qualunque anno sarebbe inventato.")},
+  {who:"C009 · Costa Gru",what:t("Belluno postcode, city Treviso","CAP di Belluno, città Treviso"),
+   then:t("The technician drives to the wrong city, or the invoice carries the wrong address.","Il tecnico va nella città sbagliata, oppure la fattura riporta l'indirizzo sbagliato."),
+   rules:t("Flagged: the data does not say which of the two is wrong.","Segnalata: i dati non dicono quale dei due è sbagliato.")},
+  {who:"C007 · Neri Ascensori",what:t("No VAT number, four-digit postcode","Partita IVA mancante, CAP di quattro cifre"),
+   then:t("This customer cannot be invoiced at all until someone calls them.","Questo cliente non si può fatturare finché qualcuno non lo chiama."),
+   rules:t("VAT uncertain, postcode flagged. Nothing is guessed.","Partita IVA incerta, CAP segnalato. Niente viene indovinato.")}
+ ];
+ var TRY=[
+  {row:"C002 · Bianchi Termotecnica · Treviso",field:t("Postcode: empty","CAP: vuoto"),ans:"fix",
+   why:t("Here correcting is right: Treviso has a single postcode, 31100. Filling it in invents nothing.","Qui correggere è giusto: Treviso ha un solo CAP, 31100. Inserirlo non inventa niente.")},
+  {row:"C003 · Verdi & Figli · Mestre",field:t("Postcode: empty","CAP: vuoto"),ans:"unc",
+   why:t("Mestre has five postcodes. Without the street, choosing one means inventing it. This is the one most people get wrong.","Mestre ha cinque CAP. Senza la via, sceglierne uno vuol dire inventarlo. È quella che sbagliano quasi tutti.")},
+  {row:"C004 · Gallo Costruzioni",field:t("VAT: 52601810272","P.IVA: 52601810272"),ans:"flag",
+   why:t("The check digit does not add up: one digit is wrong, and nothing says which. Only the original document can settle it.","La cifra di controllo non torna: una cifra è sbagliata e niente dice quale. Solo il documento originale può dirlo.")},
+  {row:"C008 · Marin Elettrica",field:t("Last inspection: 05/06","Ultimo verbale: 05/06"),ans:"unc",
+   why:t("Day and month, no year. 2025 sounds likely, but it would be a guess written down as a fact.","Giorno e mese, senza anno. Il 2025 sembra probabile, ma sarebbe un'ipotesi scritta come un fatto.")}
+ ];
+ var LBL={fix:t("I correct it","Lo correggo"),flag:t("A person checks it","Lo guarda una persona"),unc:t("I leave it uncertain","Lo lascio incerto")};
+ var STEPS=[t("1 · Ask the AI","1 · Chiedi all'AI"),t("2 · What it costs","2 · Quanto costa"),t("3 · Your turn","3 · Prova tu"),t("The table","La tabella")];
+ rcEl.innerHTML='<div class="center"><h3 class="toolh">'+t("Ten customers, dirty data. What happens when an AI works on it?","Dieci clienti, dati sporchi. Cosa succede quando ci lavora un'AI?")+'</h3><p class="lead">'+t("A customer table as it comes out of an old ERP. The AI does not know the data is dirty: it answers anyway, and sounds sure.","Una tabella clienti come esce da un vecchio gestionale. L'AI non sa che i dati sono sporchi: risponde lo stesso, e sembra sicura.")+'</p></div>'+
+  '<div class="tool"><div class="ds-steps" role="tablist">'+STEPS.map(function(s,i){return '<button type="button" role="tab" data-ds="'+i+'"'+(i===0?' class="on"':'')+'>'+esc(s)+'</button>';}).join("")+'</div>'+
+  '<div class="ds-pane" data-dp="0"><p class="ds-ask">'+t("Pick a question you would really ask:","Scegli una domanda che faresti davvero:")+'</p><div class="ds-qs">'+QS.map(function(x,i){return '<button type="button" class="btn" data-q="'+i+'">'+esc(x.q)+'</button>';}).join("")+'</div><div id="dsAns"></div></div>'+
+  '<div class="ds-pane" data-dp="1" hidden><p class="ds-ask">'+t("Seven problems in ten rows. Click one to see what it does in real life.","Sette problemi in dieci righe. Clicca per vedere cosa fanno nella realtà.")+'</p><div class="ds-costs">'+COSTS.map(function(c,i){return '<button type="button" class="ds-cost" data-k="'+i+'"><span class="who">'+esc(c.who)+'</span><b>'+esc(c.what)+'</b><span class="more"><span class="lab">'+t("In real life","Nella realtà")+'</span>'+esc(c.then)+'<span class="lab">'+t("What the rules do","Cosa fanno le regole")+'</span>'+esc(c.rules)+'</span></button>';}).join("")+'</div>'+
+   '<div class="ds-total"><div><span>'+t("Without the rules","Senza le regole")+'</span><b>'+t("6 invoices rejected, 1 customer counted twice, 2 deadlines nobody sees","6 fatture scartate, 1 cliente contato due volte, 2 scadenze che nessuno vede")+'</b></div><div><span>'+t("With the rules","Con le regole")+'</span><b>'+t("The same 7 problems, found and put in front of a person before they cost anything. Nothing invented.","Gli stessi 7 problemi, trovati e messi davanti a una persona prima che costino. Niente di inventato.")+'</b></div></div><div class="ds-next"><button type="button" class="btn" data-go="2">'+t("Next: your turn","Avanti: prova tu")+' <span class="arr">-&gt;</span></button></div></div>'+
+  '<div class="ds-pane" data-dp="2" hidden><p class="ds-ask">'+t("Four cells. What would you do with each? Then see what the rules do.","Quattro celle. Tu cosa faresti? Poi guarda cosa fanno le regole.")+'</p><div id="dsTry"></div><div id="dsScore" class="ds-score"></div></div>'+
+  '<div class="ds-pane" data-dp="3" hidden><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><button class="btn primary" type="button" id="rcRun">'+t("Run the rules","Lancia le regole")+' <span class="arr">-&gt;</span></button><button class="btn" type="button" id="rcReset">'+t("Back to the raw data","Torna ai dati grezzi")+'</button><span class="rc-count" id="rcCount"></span></div>'+
+   '<div class="rc-wrap" id="rcTable"></div><div class="rc-legend"><span><i class="k1"></i>'+t("corrected, with the reason","corretta, con il motivo")+'</span><span><i class="k2"></i>'+t("flagged: a person decides","segnalata: decide una persona")+'</span><span><i class="k3"></i>'+t("uncertain: not enough evidence","incerta: non ci sono prove sufficienti")+'</span></div>'+
+   '<div class="rc-why" id="rcWhy">'+t("The original value stays visible under every change, struck through.","Sotto ogni modifica resta visibile il valore originale, barrato.")+'</div></div>'+
+  '<p class="muted">'+t("Invented companies and numbers. The answers in step 1 are written to show what typically happens, they do not come from a live AI. The rules are real and run in your browser; the real engine works the same way on client data.","Aziende e numeri inventati. Le risposte del passo 1 sono scritte per mostrare cosa succede di solito, non arrivano da un'AI dal vivo. Le regole sono vere e girano nel tuo browser; il motore vero lavora così sui dati dei clienti.")+'</p></div>';
+ function dsGo(i){rcEl.querySelectorAll("[data-ds]").forEach(function(b){b.classList.toggle("on",+b.dataset.ds===i);b.setAttribute("aria-selected",+b.dataset.ds===i);});rcEl.querySelectorAll("[data-dp]").forEach(function(p){p.hidden=+p.dataset.dp!==i;});}
+ rcEl.querySelectorAll("[data-ds]").forEach(function(b){b.onclick=function(){gcEvent("dirty-step-"+b.dataset.ds);dsGo(+b.dataset.ds);};});
+ rcEl.querySelectorAll("[data-q]").forEach(function(b){b.onclick=function(){var x=QS[+b.dataset.q];rcEl.querySelectorAll("[data-q]").forEach(function(o){o.classList.toggle("primary",o===b);});
+  document.getElementById("dsAns").innerHTML='<div class="ds-two"><div class="ds-box bad"><div class="lab">'+t("AI on the data as it is","AI sui dati così come sono")+'</div><p class="said">“'+esc(x.raw)+'”</p><p class="truth"><b>'+t("In reality:","Nella realtà:")+'</b> '+esc(x.real)+'</p></div><div class="ds-box good"><div class="lab">'+t("AI after the rules","AI dopo le regole")+'</div><p class="said">“'+esc(x.clean)+'”</p><p class="truth"><b>'+t("The difference:","La differenza:")+'</b> '+t("it says what it does not know, and who has to check.","dice cosa non sa, e chi deve controllare.")+'</p></div></div><div class="ds-next"><button type="button" class="btn" data-go="1">'+t("Next: what it costs","Avanti: quanto costa")+' <span class="arr">-&gt;</span></button></div>';
+  rcEl.querySelector('[data-go="1"]').onclick=function(){dsGo(1);};};});
+ rcEl.querySelector('[data-go="2"]').onclick=function(){dsGo(2);};
+ rcEl.querySelectorAll(".ds-cost").forEach(function(b){b.onclick=function(){b.classList.toggle("open");};});
+ var picks={};
+ function drawTry(){var h='';TRY.forEach(function(x,i){var p=picks[i];h+='<div class="ds-try"><div class="cellq"><span class="who">'+esc(x.row)+'</span><b>'+esc(x.field)+'</b></div><div class="opts">'+["fix","flag","unc"].map(function(k){var cls="btn"+(p?(k===x.ans?" right":(k===p?" wrong":"")):"");return '<button type="button" class="'+cls+'" data-t="'+i+'" data-k="'+k+'"'+(p?" disabled":"")+'>'+esc(LBL[k])+'</button>';}).join("")+'</div>'+(p?'<p class="res"><b>'+(p===x.ans?t("Same as the rules.","Come le regole."):t("The rules say: ","Le regole dicono: ")+esc(LBL[x.ans].toLowerCase())+".")+'</b> '+esc(x.why)+'</p>':'')+'</div>';});
+  document.getElementById("dsTry").innerHTML=h;
+  var n=Object.keys(picks).length,ok=0;Object.keys(picks).forEach(function(i){if(picks[i]===TRY[i].ans)ok++;});
+  document.getElementById("dsScore").innerHTML=n===TRY.length?'<b>'+ok+' / '+TRY.length+'.</b> '+(ok===TRY.length?t("You did what the rules do: correct only what is certain.","Hai fatto come le regole: correggere solo quello che è certo."):t("The rules are not smarter than you. They just never guess, and that is what keeps the data honest.","Le regole non sono più furbe di te. Semplicemente non indovinano mai, ed è questo che tiene i dati onesti."))+' <button type="button" class="btn" id="dsAgain">'+t("Try again","Riprova")+'</button>':'';
+  rcEl.querySelectorAll("[data-t]").forEach(function(b){b.onclick=function(){picks[+b.dataset.t]=b.dataset.k;if(Object.keys(picks).length===TRY.length)gcEvent("dirty-try-done");drawTry();};});
+  var a=document.getElementById("dsAgain");if(a)a.onclick=function(){picks={};drawTry();};}
+ drawTry();
  draw(null);
  document.getElementById("rcRun").onclick=function(){gcEvent("recon-run");draw(run());document.getElementById("rcWhy").innerHTML=t("Click a coloured cell to read why.","Clicca una cella colorata per leggere il perché.");};
  document.getElementById("rcReset").onclick=function(){draw(null);document.getElementById("rcWhy").innerHTML=t("The original value stays visible under every change, struck through.","Sotto ogni modifica resta visibile il valore originale, barrato.");};
