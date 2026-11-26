@@ -716,7 +716,7 @@ table.rc td small{display:block;color:var(--ink-3);text-decoration:line-through;
       <div class="ccard">
         <h3>Where to find me next</h3>
         <div id="events"></div>
-        <div id="map" aria-label="map of talks and events"><div class="mapgate"><button class="btn" id="showMap">Show the map</button><span>Loads the map tiles from OpenStreetMap. Nothing loads until you click.</span></div><div class="mapnote">The map tiles do not load in this preview. They do on ambradan.github.io.</div></div>
+        <div id="map" aria-label="map of talks and events"><div class="mapgate"><button class="btn" id="showMap">Show the map</button><span>Loading the map from OpenStreetMap...</span></div><div class="mapnote">The map tiles do not load in this preview. They do on ambradan.github.io.</div></div>
         <div class="maplegend"><span><i class="b"></i> coming</span><span><i class="g"></i> done in 2026</span></div>
         <h3 style="margin-top:22px">Where I spoke this year</h3>
         <div id="pastTalks"></div>
@@ -732,7 +732,7 @@ table.rc td small{display:block;color:var(--ink-3);text-decoration:line-through;
     <div class="fcol"><h5>Elsewhere</h5><a href="https://www.linkedin.com/in/ambradanesin/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/ambradan" target="_blank" rel="noopener">GitHub</a><a href="https://capir-ai.com" target="_blank" rel="noopener">Capire l'IA</a><a href="https://freedom-interface.vercel.app" target="_blank" rel="noopener">Freedom v2</a><a href="https://osf.io/hjfxr" target="_blank" rel="noopener">OSF pre-registration</a></div>
     <div class="fcol"><h5>Write</h5><a href="mailto:ambradan91@gmail.com">ambradan91@gmail.com</a><p>Italian or English. Usually within two days.</p></div>
   </div>
-  <div class="wrap fbar"><span>&copy; <span id="yr"></span> Ambra Danesin · updated <span id="upd"></span></span><span>No cookies, no third-party fonts. Page views counted with GoatCounter, no personal data stored. Hosted on GitHub Pages. The map loads from OpenStreetMap only if you open it.</span></div>
+  <div class="wrap fbar"><span>&copy; <span id="yr"></span> Ambra Danesin · updated <span id="upd"></span></span><span>No cookies, no third-party fonts. Page views counted with GoatCounter, no personal data stored. Hosted on GitHub Pages. Map tiles from OpenStreetMap.</span></div>
 </footer>
 
 <div class="mod" id="mod"><div class="m"><button class="x" id="modx">Close</button><div id="modBody"></div></div></div>
@@ -1050,6 +1050,8 @@ function initMap(){
 }
 
 document.getElementById("showMap").onclick=function(){gcEvent("map-open");initMap();};
+(function(){var el=document.getElementById("map");if(!("IntersectionObserver" in window)){initMap();return;}
+ var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting&&x.target.offsetWidth>0){initMap();io.disconnect();}});},{rootMargin:"200px"});io.observe(el);})();
 
 /* cities strip */
 (function(){var c=document.getElementById("cities");var today=new Date().toISOString().slice(0,10);

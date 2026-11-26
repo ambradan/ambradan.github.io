@@ -716,7 +716,7 @@ table.rc td small{display:block;color:var(--ink-3);text-decoration:line-through;
       <div class="ccard">
         <h3>Prossimi appuntamenti</h3>
         <div id="events"></div>
-        <div id="map" aria-label="mappa di talk ed eventi"><div class="mapgate"><button class="btn" id="showMap">Mostra la mappa</button><span>Carica le tessere della mappa da OpenStreetMap. Non parte niente finché non clicchi.</span></div><div class="mapnote">Le tessere della mappa non si caricano in questa anteprima. Su ambradan.github.io sì.</div></div>
+        <div id="map" aria-label="mappa di talk ed eventi"><div class="mapgate"><button class="btn" id="showMap">Mostra la mappa</button><span>Sto caricando la mappa da OpenStreetMap...</span></div><div class="mapnote">Le tessere della mappa non si caricano in questa anteprima. Su ambradan.github.io sì.</div></div>
         <div class="maplegend"><span><i class="b"></i> in arrivo</span><span><i class="g"></i> fatti nel 2026</span></div>
         <h3 style="margin-top:22px">Dove ho parlato quest'anno</h3>
         <div id="pastTalks"></div>
@@ -732,7 +732,7 @@ table.rc td small{display:block;color:var(--ink-3);text-decoration:line-through;
     <div class="fcol"><h5>Altrove</h5><a href="https://www.linkedin.com/in/ambradanesin/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/ambradan" target="_blank" rel="noopener">GitHub</a><a href="https://capir-ai.com" target="_blank" rel="noopener">Capire l'IA</a><a href="https://freedom-interface.vercel.app" target="_blank" rel="noopener">Freedom v2</a><a href="https://osf.io/hjfxr" target="_blank" rel="noopener">Pre-registrazione OSF</a></div>
     <div class="fcol"><h5>Scrivimi</h5><a href="mailto:ambradan91@gmail.com">ambradan91@gmail.com</a><p>Italiano o inglese. Di solito entro due giorni.</p></div>
   </div>
-  <div class="wrap fbar"><span>&copy; <span id="yr"></span> Ambra Danesin · aggiornato <span id="upd"></span></span><span>Nessun cookie, nessun font di terzi. Visite contate con GoatCounter, nessun dato personale conservato. Ospitato su GitHub Pages. La mappa carica da OpenStreetMap solo se la apri.</span></div>
+  <div class="wrap fbar"><span>&copy; <span id="yr"></span> Ambra Danesin · aggiornato <span id="upd"></span></span><span>Nessun cookie, nessun font di terzi. Visite contate con GoatCounter, nessun dato personale conservato. Ospitato su GitHub Pages. Mappa da OpenStreetMap.</span></div>
 </footer>
 
 <div class="mod" id="mod"><div class="m"><button class="x" id="modx">Chiudi</button><div id="modBody"></div></div></div>
@@ -1050,6 +1050,8 @@ function initMap(){
 }
 
 document.getElementById("showMap").onclick=function(){gcEvent("map-open");initMap();};
+(function(){var el=document.getElementById("map");if(!("IntersectionObserver" in window)){initMap();return;}
+ var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting&&x.target.offsetWidth>0){initMap();io.disconnect();}});},{rootMargin:"200px"});io.observe(el);})();
 
 /* cities strip */
 (function(){var c=document.getElementById("cities");var today=new Date().toISOString().slice(0,10);
